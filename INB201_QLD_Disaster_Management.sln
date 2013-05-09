@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INB201_QLD_Disaster_Management", "INB201_QLD_Disaster_Management\INB201_QLD_Disaster_Management.csproj", "{CD95B3A3-7307-4C74-B701-D242C377EBD5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QDMS", "QDMS\QDMS.vdproj", "{551E1935-880C-402C-B10D-116A4326EC72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD95B3A3-7307-4C74-B701-D242C377EBD5}.Debug|x86.ActiveCfg = Debug|x86
+		{CD95B3A3-7307-4C74-B701-D242C377EBD5}.Debug|x86.Build.0 = Debug|x86
+		{CD95B3A3-7307-4C74-B701-D242C377EBD5}.Release|x86.ActiveCfg = Release|x86
+		{CD95B3A3-7307-4C74-B701-D242C377EBD5}.Release|x86.Build.0 = Release|x86
+		{551E1935-880C-402C-B10D-116A4326EC72}.Debug|x86.ActiveCfg = Debug
+		{551E1935-880C-402C-B10D-116A4326EC72}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
