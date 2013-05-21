@@ -40,13 +40,13 @@ namespace INB201_QLD_Disaster_Management.Forms
             assignmentCB.SelectedItem = NONE;
 
             //personnel type CB update
-            foreach (string type in parent.personnelTypes)
+            foreach (string type in parent.PersonnelTypes)
                 typeCB.Items.Add(type);
 
             typeCB.SelectedItem = VOLUNTEER;
 
             //personnel status CB update
-            foreach (string status in parent.personnelStatuses)
+            foreach (string status in parent.PersonnelStatuses)
                 statusCB.Items.Add(status);
 
             statusCB.SelectedItem = UNASSIGNED;

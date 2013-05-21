@@ -90,14 +90,14 @@ namespace INB201_QLD_Disaster_Management.Forms
             report += "\r\n\r\nIncident Status \r\n===============";
 
             //get status of incidents
-            foreach (string status in parent.incidentStatuses)
+            foreach (string status in parent.IncidentStatuses)
                 report += "\r\n" + status + ": " + 
                     parent.SQL.Count("SELECT count(*) FROM incident WHERE status='" + status + "'");
             
             report += "\r\n\r\nTotal types of Incidents \r\n========================";
 
             //get type count of incidents
-            foreach (string type in parent.incidentTypes)
+            foreach (string type in parent.IncidentTypes)
             {
                 int count = parent.SQL.Count("SELECT count(*) FROM incident WHERE type='" + type + "'");
                 if (count > 0)
@@ -110,7 +110,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             report += "\r\n\r\nTotal Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel");
             report += "\r\n\r\nTotal Types of Personnel \r\n========================";
 
-            foreach (string type in parent.personnelTypes)
+            foreach (string type in parent.PersonnelTypes)
             {
                 int count = parent.SQL.Count("SELECT count(*) FROM personnel WHERE type='" + type + "'");
                 if (count > 0)
@@ -156,7 +156,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             report += "\r\n\r\nTotal Assigned Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE incident_id=" + id);
             report += "\r\n\r\nTotal Types of Personnel \r\n========================";
 
-            foreach (string type in parent.personnelTypes)
+            foreach (string type in parent.PersonnelTypes)
             {
                 int count = parent.SQL.Count("SELECT count(*) FROM personnel WHERE type='" + type + "' AND incident_id=" + id);
                 if (count > 0)

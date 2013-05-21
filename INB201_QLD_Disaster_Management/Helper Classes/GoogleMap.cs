@@ -29,7 +29,7 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes
             this.parent = parent;
             this.gmap = gmap;
 
-            //create the first layer
+            // overlay layer to add markers on the map
             GMapOverlay overlay = new GMapOverlay("first_layer");
             gmap.Overlays.Add(overlay);
         }

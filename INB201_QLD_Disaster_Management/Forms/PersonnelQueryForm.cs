@@ -38,14 +38,14 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             //initialise personnel type comboBox
             PersonnelTypeComboBox.Items.Add(ALL);
-            foreach (string s in parent.personnelTypes)
+            foreach (string s in parent.PersonnelTypes)
                 PersonnelTypeComboBox.Items.Add(s);
 
             PersonnelTypeComboBox.SelectedItem = ALL;
 
             // intialise status comboBox
             statusComboBox.Items.Add(ALL);
-            foreach (string s in parent.personnelStatuses)
+            foreach (string s in parent.PersonnelStatuses)
                 statusComboBox.Items.Add(s);
 
             statusComboBox.SelectedItem = ALL;

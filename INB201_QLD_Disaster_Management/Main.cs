@@ -10,7 +10,11 @@ using INB201_QLD_Disaster_Management.Forms;
 namespace INB201_QLD_Disaster_Management
 {
     /// <summary>
-    /// The main form. Executes the program.
+    /// This form is the parent form which handles the interaction of
+    /// child forms and displays child forms.
+    /// 
+    /// Author: Tristan Le
+    /// ID:     N8320055
     /// </summary>
     public partial class Main : Form
     {
@@ -22,24 +26,24 @@ namespace INB201_QLD_Disaster_Management
         private const string FLOOD = "Flood";
         private const string OTHER = "Other";
 
-        public readonly string[] incidentTypes = { FIRE, STORM, FLOOD, OTHER };
+        public readonly string[] IncidentTypes = { FIRE, STORM, FLOOD, OTHER };
 
         // list of incident statuses
         private const string POSSIBLE = "Possible";
         private const string ACTIVE = "Active";
         private const string ENDED = "Ended";
 
-        public readonly string[] incidentStatuses = { POSSIBLE, ACTIVE, ENDED };
+        public readonly string[] IncidentStatuses = { POSSIBLE, ACTIVE, ENDED };
 
-        //types of personnel
+        // types of personnel
         private const string POLICE = "Police";
         private const string MEDIC = "Paramedic";
         private const string FIRE_FIGHTER = "Fire Brigade";
         private const string VOLUNTEER = "Volunteer";
 
-        public readonly string[] personnelTypes = { POLICE, MEDIC, FIRE_FIGHTER, VOLUNTEER };
+        public readonly string[] PersonnelTypes = { POLICE, MEDIC, FIRE_FIGHTER, VOLUNTEER };
 
-        //status of personnel
+        // status of personnel
         private const string UNASSIGNED = "Unassigned";
         private const string IDLE = "Idle";
         private const string STANDBY = "Standby";
@@ -49,9 +53,9 @@ namespace INB201_QLD_Disaster_Management
         private const string DECEASED = "Deceased";
 
         public readonly string[]
-            personnelStatuses = { UNASSIGNED, IDLE, STANDBY, DEPLOYED, REST, MISSING, DECEASED };
+            PersonnelStatuses = { UNASSIGNED, IDLE, STANDBY, DEPLOYED, REST, MISSING, DECEASED };
 
-        //index of form pages
+        // index of form pages
         public readonly int HOME = 0;
         public readonly int INCIDENT_QUERY = 1;
         public readonly int INCIDENT_EDIT = 2;
@@ -60,19 +64,22 @@ namespace INB201_QLD_Disaster_Management
         public readonly int INCIDENT_MAP = 5;
         public readonly int REPORTS = 6;
 
-        //SQL query class 
+        // SQL query class 
         public readonly SQL SQL = new SQL();
 
         //forms in the program
-        HomeForm homeForm;
-        IncidentQueryForm incidentQueryForm;
-        IncidentEditForm incidentEditForm;
-        PersonnelQueryForm personnelQueryForm;
-        PersonnelEditForm personnelEditForm;
-        IncidentMap incidentMap;
-        ReportsForm reportsForm;
+        private HomeForm homeForm;
+        private IncidentQueryForm incidentQueryForm;
+        private IncidentEditForm incidentEditForm;
+        private PersonnelQueryForm personnelQueryForm;
+        private PersonnelEditForm personnelEditForm;
+        private IncidentMap incidentMap;
+        private ReportsForm reportsForm;
 
-        List<Form> forms;
+        private List<Form> forms;
+
+        // whether a user has login session
+        private bool isAdmin = false;
 
         #endregion
 
@@ -94,12 +101,21 @@ namespace INB201_QLD_Disaster_Management
             get { return personnelEditForm; }
         }
 
+        /// <summary>
+        /// Get/set accessor for isAdmin
+        /// </summary>
+        public bool IsAdmin
+        {
+            get { return isAdmin; }
+            set { isAdmin = value; }
+        }
+
         #endregion
 
-        #region Constructor and Initialise
+        #region Initialise
 
         /// <summary>
-        /// Main program, constructor
+        /// Run main program
         /// </summary>
         public Main()
         {
@@ -108,7 +124,7 @@ namespace INB201_QLD_Disaster_Management
         }
 
         /// <summary>
-        /// Intialise all forms in the program
+        /// Intialises all forms in the program
         /// </summary>
         private void Initialise()
         {
@@ -203,7 +219,7 @@ namespace INB201_QLD_Disaster_Management
 
         #endregion
 
-        #region Public Helper Methods
+        #region Public Methods
 
         /// <summary>
         /// Open the form based on the index

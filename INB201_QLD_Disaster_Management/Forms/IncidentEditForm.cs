@@ -13,6 +13,12 @@ using INB201_QLD_Disaster_Management.Helper_Classes;
 
 namespace INB201_QLD_Disaster_Management.Forms
 {
+    /// <summary>
+    /// This forms enables creating and editing Incident infomation.
+    /// 
+    /// Author: Tristan Le
+    /// ID:     N8320055
+    /// </summary>
     public partial class IncidentEditForm : Form
     {
         #region Fields
@@ -20,50 +26,37 @@ namespace INB201_QLD_Disaster_Management.Forms
         private Main parent;                // provides access to public functions and SQL query
         private int incidentId;             // used to query incident information by its id value
 
-        // list of incident types
-        private const string FIRE = "Fire";
-        private const string STORM = "Thunder Storm";
-        private const string FLOOD = "Flood";
-        private const string OTHER = "Other";
-
-        string[] incidentTypes = { FIRE, STORM, FLOOD, OTHER };
-
-        // list of incident statuses
-        private const string POSSIBLE = "Possible";
-        private const string ACTIVE = "Active";
-        private const string ENDED = "Ended";
-
-        string[] incidentStatuses = { POSSIBLE, ACTIVE, ENDED };
-
         #endregion 
 
-        #region Constructor and Initialise
+        #region Initialise
 
         /// <summary>
-        /// Constructor. initialise comboxes
+        /// Constructor. Initialise comboxes
         /// </summary>
         public IncidentEditForm(Main parent)
         {
             InitializeComponent();
-            Intialise();
-
             this.parent = parent;
+            Intialise();
         }
 
         /// <summary>
-        /// initialise the combo boxes with their items inserted
+        /// Initialise the combo boxes with their items inserted.
+        /// Set the first element as the initial value.
         /// </summary>
         private void Intialise()
         {
-            foreach (string type in incidentTypes)
+            // incidentTypes combobox
+            foreach (string type in parent.IncidentTypes)
                 typeCombox.Items.Add(type);
 
-            typeCombox.SelectedItem = OTHER;
+            typeCombox.SelectedIndex = 0;
 
-            foreach (string status in incidentStatuses)
+            // incidentStatus combobox
+            foreach (string status in parent.IncidentStatuses)
                 statusCombox.Items.Add(status);
 
-            statusCombox.SelectedItem = POSSIBLE;
+            statusCombox.SelectedIndex = 0;
         }
 
         #endregion
@@ -80,7 +73,6 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (data == null) return;
 
             //assign the query data
-            idTextBox.Text = incidentId + "";
             locationTextBox.Text = data[1][0];
             statusCombox.SelectedItem = data[2][0];
             typeCombox.SelectedItem = data[3][0];
@@ -96,7 +88,6 @@ namespace INB201_QLD_Disaster_Management.Forms
         {
             if (incidentId == 0)
             {
-                idTextBox.Clear();
                 ClearForm();
                 removeButton.Visible = false;
             }
@@ -121,8 +112,8 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void ClearForm()
         {
             locationTextBox.Clear();
-            typeCombox.SelectedItem = OTHER;
-            statusCombox.SelectedItem = POSSIBLE;
+            typeCombox.SelectedIndex = 0;
+            statusCombox.SelectedIndex = 0;
             startDateTextBox.Clear();
             endDateTextBox.Clear();
             messageTextBox.Clear();
@@ -188,7 +179,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         }
 
         /// <summary>
-        /// Removes the incident from the database via ID
+        /// Removes the incident from the database. and returns to the incident query page
         /// </summary>
         private void removeButton_Click(object sender, EventArgs e)
         {
@@ -199,9 +190,13 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             if (dialogResult == DialogResult.Yes)
             {
+                // delete the query
                 string query = "DELETE FROM incident WHERE id=" + incidentId;
-
                 parent.SQL.Delete(query);
+
+                // confirm message
+                MessageBox.Show("Incident ID: " + incidentId + " has been removed successfully!");
+                parent.OpenForm(parent.INCIDENT_QUERY);
             }
         }
 
@@ -211,6 +206,14 @@ namespace INB201_QLD_Disaster_Management.Forms
         public void SetIncidentId(int value)
         {
             incidentId = value;
+        }
+
+        /// <summary>
+        /// Returns to the incident query form page
+        /// </summary>
+        private void buttonGoBack_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.INCIDENT_QUERY);
         }
     }
 }

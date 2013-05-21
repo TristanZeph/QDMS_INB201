@@ -48,13 +48,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.incidentButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPicture)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // loginButton
@@ -142,7 +143,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.usernameTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(522, 43);
+            this.groupBox1.Location = new System.Drawing.Point(745, 79);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(250, 132);
             this.groupBox1.TabIndex = 9;
@@ -188,14 +189,14 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.mapPicture);
             this.panel1.Controls.Add(this.mapButton);
-            this.panel1.Location = new System.Drawing.Point(12, 50);
+            this.panel1.Location = new System.Drawing.Point(11, 79);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(504, 443);
+            this.panel1.Size = new System.Drawing.Size(728, 430);
             this.panel1.TabIndex = 13;
             // 
             // reportsButton
             // 
-            this.reportsButton.Location = new System.Drawing.Point(404, 291);
+            this.reportsButton.Location = new System.Drawing.Point(626, 110);
             this.reportsButton.Name = "reportsButton";
             this.reportsButton.Size = new System.Drawing.Size(84, 23);
             this.reportsButton.TabIndex = 18;
@@ -206,7 +207,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(397, 189);
+            this.pictureBox3.Location = new System.Drawing.Point(619, 8);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(96, 96);
             this.pictureBox3.TabIndex = 17;
@@ -214,7 +215,7 @@
             // 
             // personnelButton
             // 
-            this.personnelButton.Location = new System.Drawing.Point(390, 110);
+            this.personnelButton.Location = new System.Drawing.Point(421, 110);
             this.personnelButton.Name = "personnelButton";
             this.personnelButton.Size = new System.Drawing.Size(108, 23);
             this.personnelButton.TabIndex = 16;
@@ -225,7 +226,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(397, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(428, 8);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(96, 96);
             this.pictureBox2.TabIndex = 15;
@@ -233,7 +234,7 @@
             // 
             // incidentButton
             // 
-            this.incidentButton.Location = new System.Drawing.Point(196, 110);
+            this.incidentButton.Location = new System.Drawing.Point(209, 110);
             this.incidentButton.Name = "incidentButton";
             this.incidentButton.Size = new System.Drawing.Size(108, 23);
             this.incidentButton.TabIndex = 14;
@@ -244,20 +245,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(201, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(214, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 96);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // pictureBox4
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 508);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Version 1.0";
+            this.pictureBox4.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
+            this.pictureBox4.Location = new System.Drawing.Point(11, 5);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(966, 52);
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
             // 
             // HomeForm
             // 
@@ -265,9 +266,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1008, 730);
             this.ControlBox = false;
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -281,6 +282,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +309,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button personnelButton;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

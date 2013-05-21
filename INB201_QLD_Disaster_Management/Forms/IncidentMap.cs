@@ -17,8 +17,8 @@ namespace INB201_QLD_Disaster_Management.Forms
         private Main parent;
         private GoogleMap map;
 
-        //temporary variables that stores the lat and lng of a position.
-        //mainly used to zoom in to the incident location
+        //temporary variables that stores the lat and lng of an incident.
+        //used to create a point and zoom to the incident location
         private double tempLat;
         private double tempLng;
 
@@ -97,6 +97,7 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             //zoom to the location
             map.SetMapCoordinates(point);
+            
         }
 
         // when form gets focus, update the combo box
@@ -137,7 +138,28 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void zoomScroll_Scroll(object sender, ScrollEventArgs e)
         {
+            gmap.Zoom = zoomScroll.Value * -1;
+        }
 
+        /// <summary>
+        /// On click marker. Zooms directly to the incident.
+        /// </summary>
+        private void gmap_OnMarkerClick(GMap.NET.WindowsForms.GMapMarker item, MouseEventArgs e)
+        {
+            string id = item.ToolTipText.Split(';')[0];         // get the id from tool tip
+            
+            // compare id values with the incident Combobox
+            for (int i = 0; i < incidentCB.Items.Count; i++)
+            {
+                //id of combobox
+                string id2 = incidentCB.Items[i].ToString().Split(';')[0];
+
+                if (id == id2)
+                {
+                    incidentCB.SelectedIndex = i;
+                    break;
+                }
+            }
         }
     }
 }

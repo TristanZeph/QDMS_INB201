@@ -44,14 +44,14 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             // incidentType ComboBox Initialise
             incidentTypeComboBox.Items.Add(ALL);
-            foreach (string s in parent.incidentTypes)
+            foreach (string s in parent.IncidentTypes)
                 incidentTypeComboBox.Items.Add(s);
 
             incidentTypeComboBox.SelectedItem = ALL;
 
             // incidentStatus ComboBox Initalise
             statusComboBox.Items.Add(ALL);
-            foreach (string s in parent.incidentStatuses)
+            foreach (string s in parent.IncidentStatuses)
                 statusComboBox.Items.Add(s);
 
             statusComboBox.SelectedItem = ALL;
@@ -67,6 +67,37 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void searchButton_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM incident ";
+            List<string> whereStatements = new List<string>();
+
+            // get the query data from the form. add them to the where statement llist
+            if (incidentTypeComboBox.Text != ALL)
+            {
+                whereStatements.Add("type='" + incidentTypeComboBox.Text + "' ");
+            }
+            if (statusComboBox.Text != ALL)
+            {
+                whereStatements.Add("status='" + statusComboBox.Text + "' ");
+            }
+            if (locationTextBox.Text != "")
+            {
+                whereStatements.Add("address LIKE '" + locationTextBox.Text + "'");
+            }
+
+            // if there are elements in the list, create the WHERE sql statement
+            if (whereStatements.Count > 0)
+            {
+                query += "WHERE " + whereStatements[0];
+
+                if (whereStatements.Count > 1)
+                {
+                    for (int i = 1; i < whereStatements.Count; i++)
+                    {
+                        query += "AND " + whereStatements[i];
+                    }
+                }
+            }
+
+            MessageBox.Show(query);
 
             //get query data
             List<string>[] data = parent.SQL.SelectIncident(query);
@@ -93,12 +124,12 @@ namespace INB201_QLD_Disaster_Management.Forms
             {
                 object[] array = new object[columns];
 
-                array[0] = data[0][i];
-                array[1] = data[1][i];
-                array[2] = data[2][i];
-                array[3] = data[3][i];
-                array[4] = data[7][i];
-                array[5] = data[8][i];
+                array[0] = data[0][i];      // id
+                array[1] = data[1][i];      // address
+                array[2] = data[2][i];      // status 
+                array[3] = data[3][i];      // type
+                array[4] = data[7][i];      // start_date
+                array[5] = data[8][i];      // end_date
 
                 table.Rows.Add(array);   
             }

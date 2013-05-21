@@ -9,17 +9,34 @@ using System.Windows.Forms;
 
 namespace INB201_QLD_Disaster_Management.Forms
 {
+    /// <summary>
+    /// This form displays the home page of the program. 
+    /// Provides navigation to other forms and supports user login.
+    /// 
+    /// Author: Tristan Le
+    /// ID:     N8320055
+    /// </summary>
     public partial class HomeForm : Form
     {
-        Main parent;
+        #region Fields
+        // access SQL functions and form transitions
+        private Main parent;
 
+        private const string PUBLIC = "Public";
+        #endregion
+
+        #region Initialise
+        /// <summary>
+        /// Constructor, passes parent for more SQL and form transitions
+        /// </summary>
         public HomeForm(Main parent)
         {
             InitializeComponent();
-
             this.parent = parent;
         }
+        #endregion
 
+        #region Button Events
         /// <summary>
         /// Allows the user to login to the program
         /// </summary>
@@ -30,15 +47,16 @@ namespace INB201_QLD_Disaster_Management.Forms
             string query = "SELECT count(*) FROM admin WHERE username='" + user + "'" +
                            " AND password='" + pass + "'";
 
-            // if there is a login match, log into the system
+            // if there is a login match, log into the system.
+            // otherwise, display error messages
             if (parent.SQL.Count(query) > 0 && userLabel.Text == "Public")
             {
                 userLabel.Text = user;
                 logoutButton.Visible = true;
+                parent.IsAdmin = true;
                 usernameTextBox.Clear();
                 parent.EnableAdminFunctions();
 
-                //go to incident query page
                 MessageBox.Show("Welcome, " + user);
             }
             else if (parent.SQL.Count(query) > 0 && userLabel.Text != "Public")
@@ -58,9 +76,11 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            userLabel.Text = "Public";
+            userLabel.Text = PUBLIC;
             logoutButton.Visible = false;
+            parent.IsAdmin = false;
             parent.DisableAdminFunctions();
+
             MessageBox.Show("You have successfully logged out!");
         }
 
@@ -77,7 +97,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void incidentButton_Click(object sender, EventArgs e)
         {
-            if (userLabel.Text != "Public")
+            if (parent.IsAdmin)
                 parent.OpenForm(parent.INCIDENT_QUERY);
             else
                 MessageBox.Show("Access Denied! Admins only.");
@@ -88,7 +108,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void personnelButton_Click(object sender, EventArgs e)
         {
-            if (userLabel.Text != "Public")
+            if (parent.IsAdmin)
                 parent.OpenForm(parent.PERSONNEL_QUERY);
             else
                 MessageBox.Show("Access Denied! Admins only.");
@@ -99,10 +119,11 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void reportsButton_Click(object sender, EventArgs e)
         {
-            if (userLabel.Text != "Public")
+            if (parent.IsAdmin)
                 parent.OpenForm(parent.REPORTS);
             else
                 MessageBox.Show("Access Denied! Admins only.");
         }
+        #endregion
     }
 }
