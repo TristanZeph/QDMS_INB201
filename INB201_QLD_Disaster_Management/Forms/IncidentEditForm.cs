@@ -140,7 +140,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             }
 
             //use geocoding to find latitude and longitude of a location
-            PointLatLng point = GeoCoding.GetPoint(location);
+            PointLatLng point = GeoCoding.GetPoint(location + " Australia");
             if (point == null)
             {
                 MessageBox.Show("Specified location is invalid! Please try again.");

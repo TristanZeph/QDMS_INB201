@@ -51,7 +51,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void UpdateIncidentId()
         {
-            string query = "SELECT * FROM incident";
+            string query = "SELECT * FROM incident WHERE status='Possible' OR status='Active'";
 
             //get query data
             List<string>[] data = parent.SQL.SelectIncident(query);
@@ -97,7 +97,7 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             //zoom to the location
             map.SetMapCoordinates(point);
-            
+            gmap.Zoom = 12;
         }
 
         // when form gets focus, update the combo box
@@ -131,6 +131,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         {
             PointLatLng point = new PointLatLng(tempLat, tempLng);
             map.SetMapCoordinates(point);
+            gmap.Zoom = 12;
         }
 
         /// <summary>

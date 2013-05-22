@@ -87,7 +87,6 @@ namespace INB201_QLD_Disaster_Management.Forms
                 UpdateInformation();
             else
             {
-                idTextBox.Clear();
                 Clear();
             }
         }
@@ -104,7 +103,6 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (data == null) return;
 
             //assign the query data
-            idTextBox.Text = personnelId + "";
             fNameTextBox.Text = data[1][0];
             lNameTextBox.Text = data[2][0];
             typeCB.SelectedItem = data[3][0];
@@ -207,6 +205,11 @@ namespace INB201_QLD_Disaster_Management.Forms
             startTimeTextBox.Clear();
             endTimeTextBox.Clear();
             hoursTextBox.Clear();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.PERSONNEL_QUERY);
         }
     }
 }

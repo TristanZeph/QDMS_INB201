@@ -44,10 +44,14 @@
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonReports = new System.Windows.Forms.Button();
+            this.buttonPersonnel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // datagrid
@@ -61,7 +65,7 @@
             this.datagrid.Location = new System.Drawing.Point(6, 19);
             this.datagrid.Name = "datagrid";
             this.datagrid.ReadOnly = true;
-            this.datagrid.Size = new System.Drawing.Size(748, 305);
+            this.datagrid.Size = new System.Drawing.Size(699, 390);
             this.datagrid.TabIndex = 0;
             // 
             // incidentIdComboBox
@@ -117,10 +121,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.datagrid);
-            this.groupBox2.Location = new System.Drawing.Point(12, 149);
+            this.groupBox2.Location = new System.Drawing.Point(285, 135);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(760, 330);
+            this.groupBox2.Size = new System.Drawing.Size(711, 415);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Incident Datatable";
@@ -131,23 +138,23 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(334, 31);
+            this.label2.Size = new System.Drawing.Size(274, 31);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Incident Information Query";
+            this.label2.Text = "Incident Management";
             // 
             // incidentTypeComboBox
             // 
             this.incidentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.incidentTypeComboBox.FormattingEnabled = true;
-            this.incidentTypeComboBox.Location = new System.Drawing.Point(9, 32);
+            this.incidentTypeComboBox.Location = new System.Drawing.Point(102, 24);
             this.incidentTypeComboBox.Name = "incidentTypeComboBox";
-            this.incidentTypeComboBox.Size = new System.Drawing.Size(98, 21);
+            this.incidentTypeComboBox.Size = new System.Drawing.Size(159, 21);
             this.incidentTypeComboBox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Location = new System.Drawing.Point(6, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 4;
@@ -155,7 +162,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(401, 30);
+            this.searchButton.Location = new System.Drawing.Point(186, 113);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 5;
@@ -172,33 +179,33 @@
             this.groupBox4.Controls.Add(this.searchButton);
             this.groupBox4.Controls.Add(this.incidentTypeComboBox);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(285, 70);
+            this.groupBox4.Location = new System.Drawing.Point(12, 135);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(487, 59);
+            this.groupBox4.Size = new System.Drawing.Size(267, 146);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Search Options";
+            this.groupBox4.Text = "Search Incidents";
             // 
             // statusComboBox
             // 
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(131, 32);
+            this.statusComboBox.Location = new System.Drawing.Point(102, 56);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(81, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(159, 21);
             this.statusComboBox.TabIndex = 6;
             // 
             // locationTextBox
             // 
-            this.locationTextBox.Location = new System.Drawing.Point(232, 32);
+            this.locationTextBox.Location = new System.Drawing.Point(102, 87);
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(141, 20);
+            this.locationTextBox.Size = new System.Drawing.Size(159, 20);
             this.locationTextBox.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 16);
+            this.label6.Location = new System.Drawing.Point(6, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 9;
@@ -207,19 +214,51 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(128, 16);
+            this.label5.Location = new System.Drawing.Point(6, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Status";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonReports);
+            this.groupBox3.Controls.Add(this.buttonPersonnel);
+            this.groupBox3.Location = new System.Drawing.Point(13, 287);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(267, 81);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Navigation";
+            // 
+            // buttonReports
+            // 
+            this.buttonReports.Location = new System.Drawing.Point(66, 48);
+            this.buttonReports.Name = "buttonReports";
+            this.buttonReports.Size = new System.Drawing.Size(132, 23);
+            this.buttonReports.TabIndex = 9;
+            this.buttonReports.Text = "Incident Reports";
+            this.buttonReports.UseVisualStyleBackColor = true;
+            this.buttonReports.Click += new System.EventHandler(this.buttonReports_Click);
+            // 
+            // buttonPersonnel
+            // 
+            this.buttonPersonnel.Location = new System.Drawing.Point(66, 19);
+            this.buttonPersonnel.Name = "buttonPersonnel";
+            this.buttonPersonnel.Size = new System.Drawing.Size(132, 23);
+            this.buttonPersonnel.TabIndex = 8;
+            this.buttonPersonnel.Text = "Personnel Management";
+            this.buttonPersonnel.UseVisualStyleBackColor = true;
+            this.buttonPersonnel.Click += new System.EventHandler(this.buttonPersonnel_Click);
             // 
             // IncidentQueryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1008, 562);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
@@ -234,6 +273,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +297,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button buttonReports;
+        private System.Windows.Forms.Button buttonPersonnel;
     }
 }

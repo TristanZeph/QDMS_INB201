@@ -31,8 +31,6 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.statusCB = new System.Windows.Forms.ComboBox();
             this.typeCB = new System.Windows.Forms.ComboBox();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.applyButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +49,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.assignmentCB = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // removeButton
@@ -81,23 +82,6 @@
             this.typeCB.Name = "typeCB";
             this.typeCB.Size = new System.Drawing.Size(87, 21);
             this.typeCB.TabIndex = 18;
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(73, 19);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(42, 20);
-            this.idTextBox.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "ID";
             // 
             // clearButton
             // 
@@ -166,8 +150,6 @@
             this.groupBox1.Controls.Add(this.removeButton);
             this.groupBox1.Controls.Add(this.statusCB);
             this.groupBox1.Controls.Add(this.typeCB);
-            this.groupBox1.Controls.Add(this.idTextBox);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.clearButton);
             this.groupBox1.Controls.Add(this.applyButton);
             this.groupBox1.Controls.Add(this.label4);
@@ -183,7 +165,7 @@
             // 
             this.hoursTextBox.Location = new System.Drawing.Point(149, 247);
             this.hoursTextBox.Name = "hoursTextBox";
-            this.hoursTextBox.Size = new System.Drawing.Size(24, 20);
+            this.hoursTextBox.Size = new System.Drawing.Size(34, 20);
             this.hoursTextBox.TabIndex = 35;
             // 
             // label10
@@ -277,6 +259,25 @@
             this.label8.TabIndex = 24;
             this.label8.Text = "Assignment";
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonBack.Location = new System.Drawing.Point(3, 3);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.TabIndex = 36;
+            this.buttonBack.Text = "Go Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonBack);
+            this.panel1.Location = new System.Drawing.Point(12, 375);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 37;
+            // 
             // PersonnelEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,6 +285,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "PersonnelEditForm";
@@ -292,6 +294,7 @@
             this.Activated += new System.EventHandler(this.PersonnelEditForm_Activated);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,8 +305,6 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.ComboBox statusCB;
         private System.Windows.Forms.ComboBox typeCB;
-        private System.Windows.Forms.TextBox idTextBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button applyButton;
         private System.Windows.Forms.Label label1;
@@ -322,5 +323,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox hoursTextBox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Panel panel1;
     }
 }

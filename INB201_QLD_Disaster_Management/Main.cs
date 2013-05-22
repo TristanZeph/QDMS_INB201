@@ -81,6 +81,9 @@ namespace INB201_QLD_Disaster_Management
         // whether a user has login session
         private bool isAdmin = false;
 
+        // the personnel id of the user. For user access control.
+        // the user should only respond to their assigned incident.
+        private int userId;         
         #endregion
 
         #region Properties
@@ -108,6 +111,15 @@ namespace INB201_QLD_Disaster_Management
         {
             get { return isAdmin; }
             set { isAdmin = value; }
+        }
+
+        /// <summary>
+        /// Get/set accessor for userId
+        /// </summary>
+        public int UserId
+        {
+            get { return userId; }
+            set { userId = value; }
         }
 
         #endregion

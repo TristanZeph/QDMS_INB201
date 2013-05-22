@@ -11,10 +11,15 @@ namespace INB201_QLD_Disaster_Management.Forms
 {
     public partial class PersonnelQueryForm : Form
     {
-        private Main parent;                // allows access to other public functions in the main form
+        // allows access to other public functions in the main form
+        private Main parent;        
 
         private const string ALL = "All";
         private const string NULL = "Null";
+        private const string ALL_INCIDENTS = "All Incidents";
+
+        private string[] columnNamePersonnel = { "Id", "Assigned Incident", "First Name", 
+                                                  "Last Name", "Type", "Status", "Hours Worked"};
 
         /// <summary>
         /// constructor, passes parent for more functionality
@@ -51,8 +56,8 @@ namespace INB201_QLD_Disaster_Management.Forms
             statusComboBox.SelectedItem = ALL;
 
             //initialise incidentidCombox
-            incidentIdCB.Items.Add(ALL);
-            incidentIdCB.SelectedItem = ALL;
+            incidentIdCB.Items.Add(ALL_INCIDENTS);
+            incidentIdCB.SelectedItem = ALL_INCIDENTS;
         }
 
         /// <summary>
@@ -90,7 +95,7 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             // clear items so we dont get duplicates id's
             incidentIdCB.Items.Clear();
-            incidentIdCB.Items.Add(NULL);
+            incidentIdCB.Items.Add(ALL_INCIDENTS);
 
             //add incident id to the combobox
             for (int i = 0; i < data[0].Count(); i++)
@@ -99,7 +104,7 @@ namespace INB201_QLD_Disaster_Management.Forms
                 incidentIdCB.Items.Add(name);
             }
 
-            incidentIdCB.SelectedItem = NULL;
+            incidentIdCB.SelectedItem = ALL_INCIDENTS;
         }
 
         /// <summary>
@@ -109,6 +114,35 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void searchButton_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM personnel ";
+            List<string> whereStatements = new List<string>();
+
+            // get the query data from the form. add them to the where statement llist
+            if (incidentIdCB.Text != ALL_INCIDENTS)
+            {
+                whereStatements.Add("incident_id=" + incidentIdCB.Text.Split(';')[0] + " ");
+            }
+            if (PersonnelTypeComboBox.Text != ALL)
+            {
+                whereStatements.Add("type='" + PersonnelTypeComboBox.Text + "' ");
+            }
+            if (statusComboBox.Text != ALL)
+            {
+                whereStatements.Add("status='" + statusComboBox.Text + "' ");
+            }
+
+            // generate the where statement
+            if (whereStatements.Count > 0)
+            {
+                query += "WHERE " + whereStatements[0];
+
+                if (whereStatements.Count > 1)
+                {
+                    for (int i = 1; i < whereStatements.Count; i++)
+                    {
+                        query += "AND " + whereStatements[i];
+                    }
+                }
+            }
 
             //get query data
             List<string>[] data = parent.SQL.SelectPersonnel(query);
@@ -124,20 +158,24 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void UpdateDatatable(List<string>[] data)
         {
             DataTable table = new DataTable();
-            int columns = parent.SQL.columnNamePersonnel.Count();
+            int columns = columnNamePersonnel.Count();
 
             //set up the columns
-            foreach (string column in parent.SQL.columnNamePersonnel)
+            foreach (string column in columnNamePersonnel)
                 table.Columns.Add(column, typeof(string));
 
-            //insert the data to the table
+            //iterate through the data of one incident
             for (int i = 0; i < data[0].Count; i++)
             {
                 object[] array = new object[columns];
 
-                //iterate through the data of one incident
-                for (int j = 0; j < columns; j++)
-                    array[j] = data[j][i];
+                array[0] = data[0][i];      // id
+                array[1] = data[8][i];      // assigned incident
+                array[2] = data[1][i];      // first name
+                array[3] = data[2][i];      // last name
+                array[4] = data[3][i];      // type
+                array[5] = data[4][i];      // status
+                array[6] = data[5][i];      // hours worked
 
                 table.Rows.Add(array);
             }
@@ -179,6 +217,22 @@ namespace INB201_QLD_Disaster_Management.Forms
             {
                 MessageBox.Show("Please select a personnel Id to edit!");
             }
+        }
+
+        /// <summary>
+        /// Opens incident Management form
+        /// </summary>
+        private void buttonIncident_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.INCIDENT_QUERY);
+        }
+
+        /// <summary>
+        /// Opens reports paage
+        /// </summary>
+        private void buttonReports_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.REPORTS);
         }
     }
 }

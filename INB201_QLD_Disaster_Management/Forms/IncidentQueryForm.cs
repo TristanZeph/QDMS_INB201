@@ -17,8 +17,8 @@ namespace INB201_QLD_Disaster_Management.Forms
         private const string NULL = "Null";
 
         //column names of the datatable
-        private string[] columnNameIncident = { "id", "address", "status", 
-                                                "type", "start_date", "end_date" };
+        private string[] columnNameIncident = { "Id", "Location", "Status", 
+                                                "Type", "Start Date", "End Date" };
 
         #region Initialise
 
@@ -97,8 +97,6 @@ namespace INB201_QLD_Disaster_Management.Forms
                 }
             }
 
-            MessageBox.Show(query);
-
             //get query data
             List<string>[] data = parent.SQL.SelectIncident(query);
 
@@ -168,7 +166,11 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (incidentIdComboBox.Text == NULL) return;
+            if (incidentIdComboBox.Text == NULL)
+            {
+                MessageBox.Show("Please select an incident.");
+                return;
+            }
 
             int id = Int32.Parse(incidentIdComboBox.Text);
 
@@ -194,5 +196,22 @@ namespace INB201_QLD_Disaster_Management.Forms
         {
             UpdateIdComboBox();
         }
+
+        /// <summary>
+        /// Opens the personnel Management form
+        /// </summary>
+        private void buttonPersonnel_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.PERSONNEL_QUERY);
+        }
+
+        /// <summary>
+        /// Opens reports form
+        /// </summary>
+        private void buttonReports_Click(object sender, EventArgs e)
+        {
+            parent.OpenForm(parent.REPORTS);
+        }
+
     }
 }

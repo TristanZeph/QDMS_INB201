@@ -49,7 +49,7 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             // if there is a login match, log into the system.
             // otherwise, display error messages
-            if (parent.SQL.Count(query) > 0 && userLabel.Text == "Public")
+            if (parent.SQL.Count(query) > 0 && parent.IsAdmin == false)
             {
                 userLabel.Text = user;
                 logoutButton.Visible = true;
@@ -59,7 +59,7 @@ namespace INB201_QLD_Disaster_Management.Forms
 
                 MessageBox.Show("Welcome, " + user);
             }
-            else if (parent.SQL.Count(query) > 0 && userLabel.Text != "Public")
+            else if (parent.SQL.Count(query) > 0 && parent.IsAdmin == true)
             {
                 MessageBox.Show("Please logout before signing in again!");
             }

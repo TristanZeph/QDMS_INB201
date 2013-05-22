@@ -80,12 +80,10 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes
 
         /// <summary>
         /// Sets the map coordinates to center at that specific point.
-        /// Zoom in to the location.
         /// </summary>
         public void SetMapCoordinates(PointLatLng point)
         {
             gmap.Position = point;
-            gmap.Zoom = 14;
         }
 
         /// <summary>
