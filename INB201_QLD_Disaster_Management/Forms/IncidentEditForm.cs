@@ -77,8 +77,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             statusCombox.SelectedItem = data[2][0];
             typeCombox.SelectedItem = data[3][0];
             messageTextBox.Text = data[6][0];
-            startDateTextBox.Text = data[7][0].Split(' ')[0];
-            endDateTextBox.Text = data[8][0].Split(' ')[0];
+            dateTimePicker.Text = data[7][0].Split(' ')[0];
         }
 
         /// <summary>
@@ -114,8 +113,6 @@ namespace INB201_QLD_Disaster_Management.Forms
             locationTextBox.Clear();
             typeCombox.SelectedIndex = 0;
             statusCombox.SelectedIndex = 0;
-            startDateTextBox.Clear();
-            endDateTextBox.Clear();
             messageTextBox.Clear();
         }
 
@@ -128,20 +125,15 @@ namespace INB201_QLD_Disaster_Management.Forms
             string location = locationTextBox.Text;
             string type = typeCombox.Text;
             string status = statusCombox.Text;
-            string startDate = startDateTextBox.Text;
-            string endDate = endDateTextBox.Text;
+            string startDate = dateTimePicker.Text;
             string message = messageTextBox.Text;
 
-            // if location is empty, show error
-            if (location == "") 
-            {
-                MessageBox.Show("Location is empty. Please specify a value!"); 
-                return;
-            }
+            // validate the form before we proceed
+            if (ValidateForm()) return;
 
             //use geocoding to find latitude and longitude of a location
             PointLatLng point = GeoCoding.GetPoint(location + " Australia");
-            if (point == null)
+            if (point.IsEmpty)
             {
                 MessageBox.Show("Specified location is invalid! Please try again.");
                 return;
@@ -156,9 +148,9 @@ namespace INB201_QLD_Disaster_Management.Forms
             {
                 /* INSERT INTO incident (type, latitude, longitude, address, warnings, status, points, start_date, end_date)
                  * VALUES ('type', 'lat', 'long', 'location', 'message', 'status', 'points', 'startDate', 'endDate'); */
-                string query = "INSERT INTO incident (type, latitude, longitude, address, warnings, status, points, start_date, end_date) " +
+                string query = @"INSERT INTO incident (type, latitude, longitude, address, warnings, status, points, start_date) " +
                                "VALUES ('" + type + "','" + lat + "','" + lng + "','" + location + "','" + message + "','" + status + 
-                                        "','points','" + startDate + "','" + endDate + "')";
+                                        "','points','" + startDate + "')";
                 
                 parent.SQL.Insert(query);
                 MessageBox.Show("Successfully created a new Incident!");
@@ -168,7 +160,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             {
                 string query = "UPDATE incident SET " +
                                "type='" + type + "',latitude='" + lat + "',longitude='" + lng + "',address='" + location + "',warnings='" + 
-                               message + "',status='" + status + "',points='points',start_date='" + startDate + "',end_date='" + endDate + "' " +
+                               message + "',status='" + status + "',points='points',start_date='" + startDate + "' " +
                                "WHERE id=" + incidentId;
 
                 parent.SQL.Update(query);
@@ -214,6 +206,20 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void buttonGoBack_Click(object sender, EventArgs e)
         {
             parent.OpenForm(parent.INCIDENT_QUERY);
+        }
+
+        /// <summary>
+        /// Validates the inputs in the form when Apply button is clicked.
+        /// Returns true if there are any errors.
+        /// Returns false if validation passes
+        /// </summary>
+        private bool ValidateForm() {
+            if (Helper_Classes.Validate.Null(locationTextBox.Text)) {
+                MessageBox.Show("Location must have an input value.");
+                return true;
+            }
+
+            return false;
         }
     }
 }

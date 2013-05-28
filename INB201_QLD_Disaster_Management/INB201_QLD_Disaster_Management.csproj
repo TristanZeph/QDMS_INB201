@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Helper Classes\GeoCoding.cs" />
     <Compile Include="Helper Classes\GoogleMap.cs" />
+    <Compile Include="Helper Classes\Validate.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

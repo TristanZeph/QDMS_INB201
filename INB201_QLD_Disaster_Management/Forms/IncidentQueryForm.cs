@@ -154,8 +154,11 @@ namespace INB201_QLD_Disaster_Management.Forms
             incidentIdComboBox.Items.Add(NULL);
 
             //add incident id to the combobox
-            for (int i = 0; i < data[0].Count(); i++)
-                incidentIdComboBox.Items.Add(data[0][i]);
+            for (int i = 0; i < data[0].Count(); i++) {
+                string incident = data[0][i] + "; " + data[1][i];
+                incidentIdComboBox.Items.Add(incident);
+            }
+                
 
             incidentIdComboBox.SelectedItem = NULL;
         }
@@ -172,7 +175,7 @@ namespace INB201_QLD_Disaster_Management.Forms
                 return;
             }
 
-            int id = Int32.Parse(incidentIdComboBox.Text);
+            int id = Int32.Parse(incidentIdComboBox.Text.Split(';')[0]);
 
             //open the incident edit form passing incident ID
             parent.IncidentEditForm.SetIncidentId(id);

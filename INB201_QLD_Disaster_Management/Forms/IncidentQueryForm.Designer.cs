@@ -65,7 +65,7 @@
             this.datagrid.Location = new System.Drawing.Point(6, 19);
             this.datagrid.Name = "datagrid";
             this.datagrid.ReadOnly = true;
-            this.datagrid.Size = new System.Drawing.Size(699, 390);
+            this.datagrid.Size = new System.Drawing.Size(475, 390);
             this.datagrid.TabIndex = 0;
             // 
             // incidentIdComboBox
@@ -74,7 +74,7 @@
             this.incidentIdComboBox.FormattingEnabled = true;
             this.incidentIdComboBox.Location = new System.Drawing.Point(9, 32);
             this.incidentIdComboBox.Name = "incidentIdComboBox";
-            this.incidentIdComboBox.Size = new System.Drawing.Size(63, 21);
+            this.incidentIdComboBox.Size = new System.Drawing.Size(406, 21);
             this.incidentIdComboBox.TabIndex = 1;
             // 
             // groupBox1
@@ -85,14 +85,14 @@
             this.groupBox1.Controls.Add(this.incidentIdComboBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(267, 59);
+            this.groupBox1.Size = new System.Drawing.Size(615, 59);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit/Create New Incidents";
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(186, 32);
+            this.createButton.Location = new System.Drawing.Point(534, 32);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 21);
             this.createButton.TabIndex = 0;
@@ -102,7 +102,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(78, 32);
+            this.editButton.Location = new System.Drawing.Point(421, 31);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 21);
             this.editButton.TabIndex = 1;
@@ -115,9 +115,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Select Incident Id";
+            this.label1.Text = "Select Incident";
             // 
             // groupBox2
             // 
@@ -127,7 +127,7 @@
             this.groupBox2.Controls.Add(this.datagrid);
             this.groupBox2.Location = new System.Drawing.Point(285, 135);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(711, 415);
+            this.groupBox2.Size = new System.Drawing.Size(487, 415);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Incident Datatable";
@@ -256,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 562);
+            this.ClientSize = new System.Drawing.Size(784, 562);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
