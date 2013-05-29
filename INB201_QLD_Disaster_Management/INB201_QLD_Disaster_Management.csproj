@@ -98,6 +98,12 @@
     <Compile Include="Forms\IncidentQueryForm.Designer.cs">
       <DependentUpon>IncidentQueryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PersonnelEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <EmbeddedResource Include="Forms\IncidentQueryForm.resx">
       <DependentUpon>IncidentQueryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonnelEditForm.resx">
       <DependentUpon>PersonnelEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,9 +184,11 @@
   <ItemGroup>
     <Content Include="Graphics\banner.png" />
     <Content Include="Graphics\incidentIcon.jpg" />
+    <Content Include="Graphics\logo.png" />
     <Content Include="Graphics\mapIcon.png" />
     <Content Include="Graphics\personnelIcon.png" />
     <Content Include="Graphics\reportsIcon.jpg" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

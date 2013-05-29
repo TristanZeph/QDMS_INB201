@@ -177,5 +177,17 @@ namespace INB201_QLD_Disaster_Management.Forms
         {
             UpdateComboBox();
         }
+
+        private void buttonPersonnel_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.PERSONNEL_QUERY);
+        }
+
+        private void buttonIncident_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_QUERY);
+        }
+
+        private void buttonMap_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_MAP);
+        }
     }
 }

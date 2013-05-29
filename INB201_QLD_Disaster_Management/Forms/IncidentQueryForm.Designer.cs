@@ -35,7 +35,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.incidentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
@@ -45,13 +44,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonMap = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonReports = new System.Windows.Forms.Button();
             this.buttonPersonnel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // datagrid
@@ -65,7 +71,7 @@
             this.datagrid.Location = new System.Drawing.Point(6, 19);
             this.datagrid.Name = "datagrid";
             this.datagrid.ReadOnly = true;
-            this.datagrid.Size = new System.Drawing.Size(475, 390);
+            this.datagrid.Size = new System.Drawing.Size(595, 219);
             this.datagrid.TabIndex = 0;
             // 
             // incidentIdComboBox
@@ -83,16 +89,18 @@
             this.groupBox1.Controls.Add(this.editButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.incidentIdComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 70);
+            this.groupBox1.Location = new System.Drawing.Point(164, 86);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(615, 59);
+            this.groupBox1.Size = new System.Drawing.Size(608, 59);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit/Create New Incidents";
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(534, 32);
+            this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createButton.Location = new System.Drawing.Point(527, 32);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 21);
             this.createButton.TabIndex = 0;
@@ -102,7 +110,8 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(421, 31);
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Location = new System.Drawing.Point(421, 32);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 21);
             this.editButton.TabIndex = 1;
@@ -121,40 +130,29 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.datagrid);
-            this.groupBox2.Location = new System.Drawing.Point(285, 135);
+            this.groupBox2.Location = new System.Drawing.Point(165, 232);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(487, 415);
+            this.groupBox2.Size = new System.Drawing.Size(607, 244);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Incident Datatable";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 31);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Incident Management";
             // 
             // incidentTypeComboBox
             // 
             this.incidentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.incidentTypeComboBox.FormattingEnabled = true;
-            this.incidentTypeComboBox.Location = new System.Drawing.Point(102, 24);
+            this.incidentTypeComboBox.Location = new System.Drawing.Point(90, 19);
             this.incidentTypeComboBox.Name = "incidentTypeComboBox";
-            this.incidentTypeComboBox.Size = new System.Drawing.Size(159, 21);
+            this.incidentTypeComboBox.Size = new System.Drawing.Size(110, 21);
             this.incidentTypeComboBox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 32);
+            this.label3.Location = new System.Drawing.Point(12, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 4;
@@ -162,7 +160,8 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(186, 113);
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Location = new System.Drawing.Point(9, 44);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 5;
@@ -179,33 +178,33 @@
             this.groupBox4.Controls.Add(this.searchButton);
             this.groupBox4.Controls.Add(this.incidentTypeComboBox);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(12, 135);
+            this.groupBox4.Location = new System.Drawing.Point(164, 151);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(267, 146);
+            this.groupBox4.Size = new System.Drawing.Size(608, 75);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Search Incidents";
+            this.groupBox4.Text = "Search Options";
             // 
             // statusComboBox
             // 
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(102, 56);
+            this.statusComboBox.Location = new System.Drawing.Point(254, 19);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(159, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(110, 21);
             this.statusComboBox.TabIndex = 6;
             // 
             // locationTextBox
             // 
-            this.locationTextBox.Location = new System.Drawing.Point(102, 87);
+            this.locationTextBox.Location = new System.Drawing.Point(467, 19);
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(159, 20);
+            this.locationTextBox.Size = new System.Drawing.Size(135, 20);
             this.locationTextBox.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 90);
+            this.label6.Location = new System.Drawing.Point(382, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 9;
@@ -214,7 +213,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 59);
+            this.label5.Location = new System.Drawing.Point(211, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 7;
@@ -222,34 +221,95 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonMap);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.buttonReports);
             this.groupBox3.Controls.Add(this.buttonPersonnel);
-            this.groupBox3.Location = new System.Drawing.Point(13, 287);
+            this.groupBox3.Location = new System.Drawing.Point(12, 86);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(267, 81);
+            this.groupBox3.Size = new System.Drawing.Size(146, 140);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigation";
             // 
+            // buttonMap
+            // 
+            this.buttonMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMap.Location = new System.Drawing.Point(6, 109);
+            this.buttonMap.Name = "buttonMap";
+            this.buttonMap.Size = new System.Drawing.Size(135, 23);
+            this.buttonMap.TabIndex = 11;
+            this.buttonMap.Text = "Incident Map";
+            this.buttonMap.UseVisualStyleBackColor = true;
+            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(6, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Incident Management";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // buttonReports
             // 
-            this.buttonReports.Location = new System.Drawing.Point(66, 48);
+            this.buttonReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReports.Location = new System.Drawing.Point(6, 80);
             this.buttonReports.Name = "buttonReports";
-            this.buttonReports.Size = new System.Drawing.Size(132, 23);
+            this.buttonReports.Size = new System.Drawing.Size(135, 23);
             this.buttonReports.TabIndex = 9;
-            this.buttonReports.Text = "Incident Reports";
+            this.buttonReports.Text = "Reports";
             this.buttonReports.UseVisualStyleBackColor = true;
             this.buttonReports.Click += new System.EventHandler(this.buttonReports_Click);
             // 
             // buttonPersonnel
             // 
-            this.buttonPersonnel.Location = new System.Drawing.Point(66, 19);
+            this.buttonPersonnel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPersonnel.Location = new System.Drawing.Point(6, 51);
             this.buttonPersonnel.Name = "buttonPersonnel";
-            this.buttonPersonnel.Size = new System.Drawing.Size(132, 23);
+            this.buttonPersonnel.Size = new System.Drawing.Size(135, 23);
             this.buttonPersonnel.TabIndex = 8;
             this.buttonPersonnel.Text = "Personnel Management";
             this.buttonPersonnel.UseVisualStyleBackColor = true;
             this.buttonPersonnel.Click += new System.EventHandler(this.buttonPersonnel_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(10, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(376, 42);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Incident Management";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 482);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // IncidentQueryForm
             // 
@@ -258,10 +318,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "IncidentQueryForm";
             this.Text = "Incident Query";
@@ -274,6 +336,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +352,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox incidentTypeComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.Label label5;
@@ -300,5 +363,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonReports;
         private System.Windows.Forms.Button buttonPersonnel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button buttonMap;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

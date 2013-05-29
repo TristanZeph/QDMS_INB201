@@ -28,127 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            this.loginButton = new System.Windows.Forms.Button();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.userLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mapButton = new System.Windows.Forms.Button();
-            this.mapPicture = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.reportsButton = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.personnelButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.incidentButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.mapPicture = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonLogIn = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelTime = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapPicture)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // loginButton
-            // 
-            this.loginButton.Location = new System.Drawing.Point(168, 15);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 48);
-            this.loginButton.TabIndex = 0;
-            this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Location = new System.Drawing.Point(67, 17);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(95, 20);
-            this.usernameTextBox.TabIndex = 1;
-            // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(9, 105);
+            this.logoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoutButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Location = new System.Drawing.Point(702, 9);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(52, 21);
+            this.logoutButton.Size = new System.Drawing.Size(70, 55);
             this.logoutButton.TabIndex = 8;
             this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.UseVisualStyleBackColor = false;
             this.logoutButton.Visible = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(72, 89);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(42, 13);
-            this.userLabel.TabIndex = 7;
-            this.userLabel.Text = "Public";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Current User:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Password";
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(67, 43);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(95, 20);
-            this.passwordTextBox.TabIndex = 4;
-            this.passwordTextBox.UseSystemPasswordChar = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Username";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.logoutButton);
-            this.groupBox1.Controls.Add(this.passwordTextBox);
-            this.groupBox1.Controls.Add(this.userLabel);
-            this.groupBox1.Controls.Add(this.loginButton);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.usernameTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(745, 79);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 132);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Adminstrator Login";
             // 
             // label1
             // 
@@ -162,126 +89,287 @@
             // 
             // mapButton
             // 
-            this.mapButton.Location = new System.Drawing.Point(11, 110);
+            this.mapButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.mapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mapButton.Location = new System.Drawing.Point(11, 117);
             this.mapButton.Name = "mapButton";
             this.mapButton.Size = new System.Drawing.Size(84, 23);
             this.mapButton.TabIndex = 11;
             this.mapButton.Text = "Incident Map";
-            this.mapButton.UseVisualStyleBackColor = true;
+            this.mapButton.UseVisualStyleBackColor = false;
             this.mapButton.Click += new System.EventHandler(this.mapButton_Click);
+            // 
+            // reportsButton
+            // 
+            this.reportsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.reportsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.reportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportsButton.Location = new System.Drawing.Point(11, 313);
+            this.reportsButton.Name = "reportsButton";
+            this.reportsButton.Size = new System.Drawing.Size(84, 23);
+            this.reportsButton.TabIndex = 18;
+            this.reportsButton.Text = "Reports";
+            this.reportsButton.UseVisualStyleBackColor = false;
+            this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
+            // 
+            // personnelButton
+            // 
+            this.personnelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.personnelButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.personnelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.personnelButton.Location = new System.Drawing.Point(277, 117);
+            this.personnelButton.Name = "personnelButton";
+            this.personnelButton.Size = new System.Drawing.Size(108, 23);
+            this.personnelButton.TabIndex = 16;
+            this.personnelButton.Text = "Manage Personnel";
+            this.personnelButton.UseVisualStyleBackColor = false;
+            this.personnelButton.Click += new System.EventHandler(this.personnelButton_Click);
+            // 
+            // incidentButton
+            // 
+            this.incidentButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.incidentButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.incidentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.incidentButton.Location = new System.Drawing.Point(139, 117);
+            this.incidentButton.Name = "incidentButton";
+            this.incidentButton.Size = new System.Drawing.Size(108, 23);
+            this.incidentButton.TabIndex = 14;
+            this.incidentButton.Text = "Manage Incidents";
+            this.incidentButton.UseVisualStyleBackColor = false;
+            this.incidentButton.Click += new System.EventHandler(this.incidentButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.reportsButton);
+            this.groupBox2.Controls.Add(this.mapPicture);
+            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.mapButton);
+            this.groupBox2.Controls.Add(this.personnelButton);
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.incidentButton);
+            this.groupBox2.Location = new System.Drawing.Point(194, 86);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(391, 391);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Menu";
             // 
             // mapPicture
             // 
             this.mapPicture.Image = ((System.Drawing.Image)(resources.GetObject("mapPicture.Image")));
-            this.mapPicture.Location = new System.Drawing.Point(6, 8);
+            this.mapPicture.Location = new System.Drawing.Point(6, 15);
             this.mapPicture.Name = "mapPicture";
             this.mapPicture.Size = new System.Drawing.Size(96, 96);
             this.mapPicture.TabIndex = 12;
             this.mapPicture.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.reportsButton);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.personnelButton);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.incidentButton);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.mapPicture);
-            this.panel1.Controls.Add(this.mapButton);
-            this.panel1.Location = new System.Drawing.Point(11, 79);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 430);
-            this.panel1.TabIndex = 13;
-            // 
-            // reportsButton
-            // 
-            this.reportsButton.Location = new System.Drawing.Point(626, 110);
-            this.reportsButton.Name = "reportsButton";
-            this.reportsButton.Size = new System.Drawing.Size(84, 23);
-            this.reportsButton.TabIndex = 18;
-            this.reportsButton.Text = "Reports";
-            this.reportsButton.UseVisualStyleBackColor = true;
-            this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
-            // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(619, 8);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 211);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(96, 96);
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
-            // personnelButton
-            // 
-            this.personnelButton.Location = new System.Drawing.Point(421, 110);
-            this.personnelButton.Name = "personnelButton";
-            this.personnelButton.Size = new System.Drawing.Size(108, 23);
-            this.personnelButton.TabIndex = 16;
-            this.personnelButton.Text = "Manage Personnel";
-            this.personnelButton.UseVisualStyleBackColor = true;
-            this.personnelButton.Click += new System.EventHandler(this.personnelButton_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(428, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(96, 96);
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
-            // incidentButton
-            // 
-            this.incidentButton.Location = new System.Drawing.Point(209, 110);
-            this.incidentButton.Name = "incidentButton";
-            this.incidentButton.Size = new System.Drawing.Size(108, 23);
-            this.incidentButton.TabIndex = 14;
-            this.incidentButton.Text = "Manage Incidents";
-            this.incidentButton.UseVisualStyleBackColor = true;
-            this.incidentButton.Click += new System.EventHandler(this.incidentButton_Click);
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(214, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 96);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(284, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(96, 96);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(95, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(571, 33);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Queensland Disaster Management System";
+            // 
+            // buttonLogIn
+            // 
+            this.buttonLogIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogIn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogIn.Location = new System.Drawing.Point(702, 9);
+            this.buttonLogIn.Name = "buttonLogIn";
+            this.buttonLogIn.Size = new System.Drawing.Size(70, 55);
+            this.buttonLogIn.TabIndex = 24;
+            this.buttonLogIn.Text = "Login";
+            this.buttonLogIn.UseVisualStyleBackColor = false;
+            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.logo;
+            this.pictureBox6.Location = new System.Drawing.Point(-13, 5);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(102, 67);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 25;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
+            this.pictureBox5.Location = new System.Drawing.Point(0, 482);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 21;
+            this.pictureBox5.TabStop = false;
+            // 
             // pictureBox4
             // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
-            this.pictureBox4.Location = new System.Drawing.Point(11, 5);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(966, 52);
+            this.pictureBox4.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 19;
             this.pictureBox4.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.Black;
+            this.labelTime.Location = new System.Drawing.Point(98, 38);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(41, 18);
+            this.labelTime.TabIndex = 19;
+            this.labelTime.Text = "Time";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 493);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(434, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Queensland Disaster Management System. Developed by Tristan Le. QUT Gardens Point" +
+                ". ";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(706, 493);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Version 1.0a";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 511);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(301, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "This application is not associated by Queensland Government.";
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.Location = new System.Drawing.Point(579, 54);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(48, 18);
+            this.labelUsername.TabIndex = 29;
+            this.labelUsername.Text = "User: ";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelError
+            // 
+            this.labelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(592, 86);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(28, 13);
+            this.labelError.TabIndex = 30;
+            this.labelError.Text = "error";
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelError.Visible = false;
+            this.labelError.TextChanged += new System.EventHandler(this.labelError_TextChanged);
+            // 
             // HomeForm
             // 
-            this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.ClientSize = new System.Drawing.Size(784, 562);
             this.ControlBox = false;
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.labelUsername);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelTime);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.buttonLogIn);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Name = "HomeForm";
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Activated += new System.EventHandler(this.HomeForm_Activated);
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapPicture)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -290,19 +378,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label userLabel;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button mapButton;
         private System.Windows.Forms.PictureBox mapPicture;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button incidentButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button reportsButton;
@@ -310,5 +389,17 @@
         private System.Windows.Forms.Button personnelButton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonLogIn;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Label labelError;
     }
 }

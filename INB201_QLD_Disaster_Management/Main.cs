@@ -63,6 +63,7 @@ namespace INB201_QLD_Disaster_Management
         public readonly int PERSONNEL_EDIT = 4;
         public readonly int INCIDENT_MAP = 5;
         public readonly int REPORTS = 6;
+        public readonly int LOGIN = 7;
 
         // SQL query class 
         public readonly SQL SQL = new SQL();
@@ -75,15 +76,18 @@ namespace INB201_QLD_Disaster_Management
         private PersonnelEditForm personnelEditForm;
         private IncidentMap incidentMap;
         private ReportsForm reportsForm;
+        private LogInForm logInForm;
 
         private List<Form> forms;
 
         // whether a user has login session
         private bool isAdmin = false;
 
-        // the personnel id of the user. For user access control.
-        // the user should only respond to their assigned incident.
-        private int userId;         
+        private const string PUBLIC = "Public";
+
+        // used to display account name in home screen
+        private string accountName = PUBLIC;
+     
         #endregion
 
         #region Properties
@@ -114,12 +118,11 @@ namespace INB201_QLD_Disaster_Management
         }
 
         /// <summary>
-        /// Get/set accessor for userId
+        /// get/set accesor for accountName
         /// </summary>
-        public int UserId
-        {
-            get { return userId; }
-            set { userId = value; }
+        public string AccountName {
+            get { return accountName; }
+            set { accountName = value; }
         }
 
         #endregion
@@ -169,6 +172,10 @@ namespace INB201_QLD_Disaster_Management
             //reports form
             reportsForm = new ReportsForm(this);
             forms.Add(reportsForm);
+
+            //login form
+            logInForm = new LogInForm(this);
+            forms.Add(logInForm);
 
             // assign mdiParent to this form
             foreach (Form form in forms)

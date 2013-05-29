@@ -11,11 +11,23 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes
     public class GeoCoding
     {
         /// <summary>
-        /// Uses geocoding to locate the lat and lng of an address.
-        /// Returns a pointLatLng
+        /// Determines if the address for geo-coding is valid.
+        /// Return true, if the address is valid.
+        /// Otherwise, return false.
         /// </summary>
-        public static PointLatLng GetPoint(string address)
+        public static bool IsAddressValid(string address)
         {
+            //use geocoding to find the Lat and Lng
+            GeoCoderStatusCode s = GeoCoderStatusCode.Unknow;
+            PointLatLng? pos = GMapProviders.GoogleMap.GetPoint(address, out s);
+
+            return pos.HasValue;
+        }
+
+        /// <summary>
+        /// Returns the latitude and longitude of an address.
+        /// </summary>
+        public static PointLatLng GetPoint(string address) {
             //use geocoding to find the Lat and Lng
             GeoCoderStatusCode s = GeoCoderStatusCode.Unknow;
             PointLatLng? pos = GMapProviders.GoogleMap.GetPoint(address, out s);

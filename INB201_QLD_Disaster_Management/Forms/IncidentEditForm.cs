@@ -95,6 +95,9 @@ namespace INB201_QLD_Disaster_Management.Forms
                 UpdateInformation();
                 removeButton.Visible = true;
             }
+
+            labelConfirm.Visible = false;
+            labelError.Visible = false;
         }
 
         /// <summary>
@@ -121,6 +124,10 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void applyButton_Click(object sender, EventArgs e)
         {
+            // hide/confirm the error messages
+            labelError.Visible = false;
+            labelConfirm.Visible = false;
+
             // collect the information
             string location = locationTextBox.Text;
             string type = typeCombox.Text;
@@ -132,10 +139,13 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (ValidateForm()) return;
 
             //use geocoding to find latitude and longitude of a location
-            PointLatLng point = GeoCoding.GetPoint(location + " Australia");
-            if (point.IsEmpty)
-            {
-                MessageBox.Show("Specified location is invalid! Please try again.");
+            PointLatLng point = new PointLatLng();
+            if (GeoCoding.IsAddressValid(location + " Australia")) {
+                point = GeoCoding.GetPoint(location + " Australia");
+            }
+            else {
+                //show error
+                DisplayLabel(labelError, "Address is not a valid location.");
                 return;
             }
 
@@ -153,21 +163,19 @@ namespace INB201_QLD_Disaster_Management.Forms
                                         "','points','" + startDate + "')";
                 
                 parent.SQL.Insert(query);
-                MessageBox.Show("Successfully created a new Incident!");
+                DisplayLabel(labelConfirm, "Successfully created an incident.");
             }
             // edit incident was selected
             else    
             {
                 string query = "UPDATE incident SET " +
                                "type='" + type + "',latitude='" + lat + "',longitude='" + lng + "',address='" + location + "',warnings='" + 
-                               message + "',status='" + status + "',points='points',start_date='" + startDate + "' " +
+                               message + "',status='" + status + "',start_date='" + startDate + "' " +
                                "WHERE id=" + incidentId;
 
                 parent.SQL.Update(query);
-                MessageBox.Show("Successfully edited incident ID: " + incidentId + "!");
+                DisplayLabel(labelConfirm, "Successfully edited incident ID: " + incidentId + ".");
             }
-
-            parent.OpenForm(parent.INCIDENT_QUERY);
         }
 
         /// <summary>
@@ -215,11 +223,32 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private bool ValidateForm() {
             if (Helper_Classes.Validate.Null(locationTextBox.Text)) {
-                MessageBox.Show("Location must have an input value.");
+                DisplayLabel(labelError, "Location must have an input value.");
                 return true;
             }
 
             return false;
+        }
+
+        private void buttonPersonnel_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.PERSONNEL_QUERY);
+        }
+
+        private void buttonReports_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.REPORTS);
+        }
+
+        private void buttonMap_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_MAP);
+        }
+
+        /// <summary>
+        /// Assigns the label with text.
+        /// Shows the label on the screen.
+        /// </summary>
+        private void DisplayLabel(Label label, string text) {
+            label.Text = text;
+            label.Visible = true;
         }
     }
 }

@@ -33,42 +33,14 @@ namespace INB201_QLD_Disaster_Management.Forms
         {
             InitializeComponent();
             this.parent = parent;
+
+            timer1.Start();
         }
         #endregion
 
         #region Button Events
-        /// <summary>
-        /// Allows the user to login to the program
-        /// </summary>
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            string user = usernameTextBox.Text;
-            string pass = passwordTextBox.Text;
-            string query = "SELECT count(*) FROM admin WHERE username='" + user + "'" +
-                           " AND password='" + pass + "'";
-
-            // if there is a login match, log into the system.
-            // otherwise, display error messages
-            if (parent.SQL.Count(query) > 0 && parent.IsAdmin == false)
-            {
-                userLabel.Text = user;
-                logoutButton.Visible = true;
-                parent.IsAdmin = true;
-                usernameTextBox.Clear();
-                parent.EnableAdminFunctions();
-
-                MessageBox.Show("Welcome, " + user);
-            }
-            else if (parent.SQL.Count(query) > 0 && parent.IsAdmin == true)
-            {
-                MessageBox.Show("Please logout before signing in again!");
-            }
-            else
-            {
-                MessageBox.Show("Username or password invalid!");
-            }
-
-            passwordTextBox.Clear();
+        private void buttonLogIn_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.LOGIN);
         }
 
         /// <summary>
@@ -76,12 +48,14 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            userLabel.Text = PUBLIC;
+            buttonLogIn.Visible = true;
             logoutButton.Visible = false;
             parent.IsAdmin = false;
             parent.DisableAdminFunctions();
+            parent.AccountName = "Public";
+            labelUsername.Text = "User: " + parent.AccountName;
 
-            MessageBox.Show("You have successfully logged out!");
+            labelError.Text = "You have successfully logged out!";
         }
 
         /// <summary>
@@ -100,7 +74,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.INCIDENT_QUERY);
             else
-                MessageBox.Show("Access Denied! Admins only.");
+                labelError.Text = "Access Denied. Administrators only.";
         }
 
         /// <summary>
@@ -111,7 +85,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.PERSONNEL_QUERY);
             else
-                MessageBox.Show("Access Denied! Admins only.");
+                labelError.Text = "Access Denied. Administrators only.";
         }
 
         /// <summary>
@@ -122,8 +96,31 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.REPORTS);
             else
-                MessageBox.Show("Access Denied! Admins only.");
+                labelError.Text = "Access Denied. Administrators only.";
         }
         #endregion
+
+        private void HomeForm_Activated(object sender, EventArgs e) {
+            if (parent.IsAdmin) {
+                buttonLogIn.Visible = false;
+                logoutButton.Visible = true;
+            }
+            else {
+                buttonLogIn.Visible = true;
+                logoutButton.Visible = false;
+            }
+
+            labelError.Visible = false;
+            labelUsername.Text = "User: " + parent.AccountName;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            labelTime.Text = DateTime.Now.ToLongDateString() + "\n" +
+                DateTime.Now.ToShortTimeString();
+        }
+
+        private void labelError_TextChanged(object sender, EventArgs e) {
+            labelError.Visible = true;
+        }
     }
 }

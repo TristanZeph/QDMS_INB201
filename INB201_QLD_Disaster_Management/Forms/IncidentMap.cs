@@ -44,6 +44,8 @@ namespace INB201_QLD_Disaster_Management.Forms
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
             map = new GoogleMap(gmap, parent);
             map.GoToDefaultLocation();
+
+            timer1.Start();
         }
 
         /// <summary>
@@ -161,6 +163,11 @@ namespace INB201_QLD_Disaster_Management.Forms
                     break;
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            labelTime.Text = DateTime.Now.ToLongDateString() + "\n" +
+                DateTime.Now.ToShortTimeString();
         }
     }
 }

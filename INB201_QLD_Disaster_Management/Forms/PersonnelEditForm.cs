@@ -50,6 +50,12 @@ namespace INB201_QLD_Disaster_Management.Forms
                 statusCB.Items.Add(status);
 
             statusCB.SelectedItem = UNASSIGNED;
+
+            // continuous hours CB initialise
+            for (int i = 0; i < 25; i++)
+                comboBoxHours.Items.Add(i);
+
+            comboBoxHours.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -107,7 +113,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             lNameTextBox.Text = data[2][0];
             typeCB.SelectedItem = data[3][0];
             statusCB.SelectedItem = data[4][0];
-            hoursTextBox.Text = data[5][0];
+            comboBoxHours.Text = data[5][0];
             startTimeTextBox.Text = data[6][0];
             endTimeTextBox.Text = data[7][0];
 
@@ -133,7 +139,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             string status = statusCB.Text;
             string startTime = startTimeTextBox.Text;
             string endTime = endTimeTextBox.Text;
-            string hours = hoursTextBox.Text;
+            string hours = comboBoxHours.Text;
 
             //gets incident id from text. if there is no assignment, we get null
             if (assignmentCB.Text != NONE)
@@ -204,12 +210,23 @@ namespace INB201_QLD_Disaster_Management.Forms
             statusCB.SelectedItem = UNASSIGNED;
             startTimeTextBox.Clear();
             endTimeTextBox.Clear();
-            hoursTextBox.Clear();
+            comboBoxHours.SelectedIndex = 0;
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
+        private void buttonIncident_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_QUERY);
+        }
+
+        private void buttonPersonnel_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.PERSONNEL_QUERY);
+        }
+
+        private void buttonReports_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.REPORTS);
+        }
+
+        private void buttonMap_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_MAP);
         }
     }
 }

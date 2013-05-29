@@ -216,5 +216,8 @@ namespace INB201_QLD_Disaster_Management.Forms
             parent.OpenForm(parent.REPORTS);
         }
 
+        private void buttonMap_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_MAP);
+        }
     }
 }
