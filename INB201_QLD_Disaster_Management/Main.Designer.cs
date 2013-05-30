@@ -80,21 +80,21 @@
             // incidentToolStripMenuItem
             // 
             this.incidentToolStripMenuItem.Name = "incidentToolStripMenuItem";
-            this.incidentToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.incidentToolStripMenuItem.Text = "Incident Query";
+            this.incidentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.incidentToolStripMenuItem.Text = "Incident Management";
             this.incidentToolStripMenuItem.Click += new System.EventHandler(this.incidentToolStripMenuItem_Click);
             // 
             // personnelToolStripMenuItem
             // 
             this.personnelToolStripMenuItem.Name = "personnelToolStripMenuItem";
-            this.personnelToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.personnelToolStripMenuItem.Text = "Personnel Query";
+            this.personnelToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.personnelToolStripMenuItem.Text = "Personnel Management";
             this.personnelToolStripMenuItem.Click += new System.EventHandler(this.personnelToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 

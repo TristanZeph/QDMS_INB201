@@ -55,7 +55,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             parent.AccountName = "Public";
             labelUsername.Text = "User: " + parent.AccountName;
 
-            labelError.Text = "You have successfully logged out!";
+            DisplayLabel(labelError, "You have successfully logged out!");
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.INCIDENT_QUERY);
             else
-                labelError.Text = "Access Denied. Administrators only.";
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.PERSONNEL_QUERY);
             else
-                labelError.Text = "Access Denied. Administrators only.";
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             if (parent.IsAdmin)
                 parent.OpenForm(parent.REPORTS);
             else
-                labelError.Text = "Access Denied. Administrators only.";
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
         }
         #endregion
 
@@ -117,6 +117,11 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void timer1_Tick(object sender, EventArgs e) {
             labelTime.Text = DateTime.Now.ToLongDateString() + "\n" +
                 DateTime.Now.ToShortTimeString();
+        }
+
+        private void DisplayLabel(Label label, string message) {
+            label.Text = message;
+            label.Visible = true;
         }
 
         private void labelError_TextChanged(object sender, EventArgs e) {

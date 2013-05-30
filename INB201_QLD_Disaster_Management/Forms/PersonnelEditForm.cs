@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using INB201_QLD_Disaster_Management.Helper_Classes;
+
 namespace INB201_QLD_Disaster_Management.Forms
 {
     public partial class PersonnelEditForm : Form
@@ -132,6 +134,13 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// </summary>
         private void applyButton_Click(object sender, EventArgs e)
         {
+            HideErrors();
+
+            // validate the form. If we find errors, do not continue.
+            if (ValidateForm()) {
+                return;
+            }
+
             string incidentId;
             string fName = fNameTextBox.Text;
             string lName = lNameTextBox.Text;
@@ -160,7 +169,7 @@ namespace INB201_QLD_Disaster_Management.Forms
                 query += "')";
 
                 parent.SQL.Insert(query);
-                MessageBox.Show("Successfully created new Personnel!");
+                ShowLabelError(labelConfirm, "Successfully created new Personnel.");
             }
             // else edit button was selected. use update query
             else
@@ -175,10 +184,8 @@ namespace INB201_QLD_Disaster_Management.Forms
                 query += "WHERE id=" + personnelId;
 
                 parent.SQL.Update(query);
-                MessageBox.Show("Successfully updated Personnel ID: " + personnelId);
+                ShowLabelError(labelConfirm, "Successfully updated Personnel ID: " + personnelId);
             }
-
-            parent.OpenForm(parent.PERSONNEL_QUERY);
         }
 
         /// <summary>
@@ -227,6 +234,56 @@ namespace INB201_QLD_Disaster_Management.Forms
 
         private void buttonMap_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.INCIDENT_MAP);
+        }
+
+        /// <summary>
+        /// Executes validation when user hits the submit (apply) button.
+        /// </summary>
+        /// <returns>
+        /// Returns true, if validation fails.
+        /// Otherwise, return false. (validation passes)</returns>
+        private bool ValidateForm() {
+            List<Label> labels = new List<Label>();
+
+            if (Helper_Classes.Validate.LettersOnly(fNameTextBox.Text) ||
+                Helper_Classes.Validate.Null(fNameTextBox.Text)) {
+                labels.Add(labelErrorFName);
+            }
+            if (Helper_Classes.Validate.LettersOnly(lNameTextBox.Text) ||
+                Helper_Classes.Validate.Null(lNameTextBox.Text)) {
+                labels.Add(labelErrorLName);
+            }
+            if (Helper_Classes.Validate.NumbersOnly(startTimeTextBox.Text) ||
+                Helper_Classes.Validate.Null(startTimeTextBox.Text)) {
+                labels.Add(labelErrorStart);
+            }
+            if (Helper_Classes.Validate.NumbersOnly(endTimeTextBox.Text) ||
+                Helper_Classes.Validate.Null(endTimeTextBox.Text)) {
+                    labels.Add(labelErrorEnd);
+            }
+
+            if (labels.Count() > 0) {
+                foreach (Label l in labels) {
+                    l.Visible = true;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private void ShowLabelError(Label label, string message) {
+            label.Text = message;
+            label.Visible = true;
+        }
+
+        private void HideErrors() {
+            labelErrorEnd.Visible = false;
+            labelErrorStart.Visible = false;
+            labelErrorFName.Visible = false;
+            labelErrorLName.Visible = false;
+            labelConfirm.Visible = false;
         }
     }
 }

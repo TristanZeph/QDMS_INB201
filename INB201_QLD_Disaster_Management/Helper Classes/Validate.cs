@@ -51,5 +51,20 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
 
             return !regex.IsMatch(text);
         }
+
+        /// <summary>
+        /// String validation for correct text length.
+        /// </summary>
+        /// <param name="size">Maximum size of the text</param>
+        /// <param name="text">The input value</param>
+        /// <returns>
+        /// True, if the text count is greater than size.
+        /// Otherwise, return false.
+        /// </returns>
+        public static bool Size(int size, string text) {
+            int count = text.Count();
+
+            return count > size;
+        }
     }
 }

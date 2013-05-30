@@ -182,9 +182,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Graphics\banner.png" />
     <Content Include="Graphics\incidentIcon.jpg" />
-    <Content Include="Graphics\logo.png" />
     <Content Include="Graphics\mapIcon.png" />
     <Content Include="Graphics\personnelIcon.png" />
     <Content Include="Graphics\reportsIcon.jpg" />

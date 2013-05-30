@@ -57,17 +57,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.assignmentCB = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonMap = new System.Windows.Forms.Button();
             this.buttonIncident = new System.Windows.Forms.Button();
             this.buttonReports = new System.Windows.Forms.Button();
             this.buttonPersonnel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // removeButton
@@ -126,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(97)))), ((int)(((byte)(142)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 19);
@@ -218,9 +218,9 @@
             this.labelErrorEnd.ForeColor = System.Drawing.Color.Red;
             this.labelErrorEnd.Location = new System.Drawing.Point(443, 141);
             this.labelErrorEnd.Name = "labelErrorEnd";
-            this.labelErrorEnd.Size = new System.Drawing.Size(70, 13);
+            this.labelErrorEnd.Size = new System.Drawing.Size(86, 13);
             this.labelErrorEnd.TabIndex = 42;
-            this.labelErrorEnd.Text = "labelErrorEnd";
+            this.labelErrorEnd.Text = "Invalid End Time";
             this.labelErrorEnd.Visible = false;
             // 
             // labelErrorStart
@@ -229,9 +229,9 @@
             this.labelErrorStart.ForeColor = System.Drawing.Color.Red;
             this.labelErrorStart.Location = new System.Drawing.Point(443, 114);
             this.labelErrorStart.Name = "labelErrorStart";
-            this.labelErrorStart.Size = new System.Drawing.Size(73, 13);
+            this.labelErrorStart.Size = new System.Drawing.Size(89, 13);
             this.labelErrorStart.TabIndex = 41;
-            this.labelErrorStart.Text = "labelErrorStart";
+            this.labelErrorStart.Text = "Invalid Start Time";
             this.labelErrorStart.Visible = false;
             // 
             // labelErrorLName
@@ -240,9 +240,9 @@
             this.labelErrorLName.ForeColor = System.Drawing.Color.Red;
             this.labelErrorLName.Location = new System.Drawing.Point(271, 57);
             this.labelErrorLName.Name = "labelErrorLName";
-            this.labelErrorLName.Size = new System.Drawing.Size(85, 13);
+            this.labelErrorLName.Size = new System.Drawing.Size(192, 13);
             this.labelErrorLName.TabIndex = 40;
-            this.labelErrorLName.Text = "labelErrorLName";
+            this.labelErrorLName.Text = "Invalid Last Name. Must be letters only.";
             this.labelErrorLName.Visible = false;
             // 
             // labelErrorFName
@@ -251,9 +251,9 @@
             this.labelErrorFName.ForeColor = System.Drawing.Color.Red;
             this.labelErrorFName.Location = new System.Drawing.Point(271, 28);
             this.labelErrorFName.Name = "labelErrorFName";
-            this.labelErrorFName.Size = new System.Drawing.Size(85, 13);
+            this.labelErrorFName.Size = new System.Drawing.Size(191, 13);
             this.labelErrorFName.TabIndex = 39;
-            this.labelErrorFName.Text = "labelErrorFName";
+            this.labelErrorFName.Text = "Invalid First Name. Must be letters only.";
             this.labelErrorFName.Visible = false;
             // 
             // label11
@@ -305,11 +305,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 141);
+            this.label7.Location = new System.Drawing.Point(289, 141);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 13);
+            this.label7.Size = new System.Drawing.Size(108, 13);
             this.label7.TabIndex = 32;
-            this.label7.Text = "End Time (24hr time)";
+            this.label7.Text = "End Time (24hr time)*";
             // 
             // startTimeTextBox
             // 
@@ -322,11 +322,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(290, 114);
+            this.label9.Location = new System.Drawing.Point(286, 114);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 13);
+            this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 30;
-            this.label9.Text = "Start Time (24hr time)";
+            this.label9.Text = "Start Time (24hr time)*";
             // 
             // lNameTextBox
             // 
@@ -377,30 +377,6 @@
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 24;
             this.label8.Text = "Assignment";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(784, 80);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::INB201_QLD_Disaster_Management.Properties.Resources.banner;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 482);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(784, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 39;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox3
             // 
@@ -459,6 +435,30 @@
             this.buttonPersonnel.UseVisualStyleBackColor = true;
             this.buttonPersonnel.Click += new System.EventHandler(this.buttonPersonnel_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(97)))), ((int)(((byte)(142)))));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 482);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 39;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(97)))), ((int)(((byte)(142)))));
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(784, 80);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
             // PersonnelEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,9 +477,9 @@
             this.Activated += new System.EventHandler(this.PersonnelEditForm_Activated);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
