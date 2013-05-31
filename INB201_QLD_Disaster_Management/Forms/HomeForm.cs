@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace INB201_QLD_Disaster_Management.Forms
-{
+namespace INB201_QLD_Disaster_Management.Forms {
     /// <summary>
     /// This form displays the home page of the program. 
     /// Provides navigation to other forms and supports user login.
@@ -16,8 +15,8 @@ namespace INB201_QLD_Disaster_Management.Forms
     /// Author: Tristan Le
     /// ID:     N8320055
     /// </summary>
-    public partial class HomeForm : Form
-    {
+    public partial class HomeForm : Form {
+        
         #region Fields
         // access SQL functions and form transitions
         private Main parent;
@@ -26,28 +25,52 @@ namespace INB201_QLD_Disaster_Management.Forms
         #endregion
 
         #region Initialise
+
         /// <summary>
         /// Constructor, passes parent for more SQL and form transitions
         /// </summary>
-        public HomeForm(Main parent)
-        {
+        public HomeForm(Main parent) {
             InitializeComponent();
             this.parent = parent;
 
             timer1.Start();
         }
+
         #endregion
 
         #region Button Events
+        /// <summary>
+        /// Button Events open the page that is associated with the button
+        /// </summary>
         private void buttonLogIn_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.LOGIN);
+        }
+        private void mapButton_Click(object sender, EventArgs e) {
+            parent.OpenForm(parent.INCIDENT_MAP);
+        }
+        private void incidentButton_Click(object sender, EventArgs e) {
+            if (parent.IsAdmin)
+                parent.OpenForm(parent.INCIDENT_QUERY);
+            else
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
+        }
+        private void personnelButton_Click(object sender, EventArgs e) {
+            if (parent.IsAdmin)
+                parent.OpenForm(parent.PERSONNEL_QUERY);
+            else
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
+        }
+        private void reportsButton_Click(object sender, EventArgs e) {
+            if (parent.IsAdmin)
+                parent.OpenForm(parent.REPORTS);
+            else
+                DisplayLabel(labelError, "Access Denied. Administrators only.");
         }
 
         /// <summary>
         /// Allows user to logout of the system
         /// </summary>
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
+        private void logoutButton_Click(object sender, EventArgs e) {
             buttonLogIn.Visible = true;
             logoutButton.Visible = false;
             parent.IsAdmin = false;
@@ -58,54 +81,19 @@ namespace INB201_QLD_Disaster_Management.Forms
             DisplayLabel(labelError, "You have successfully logged out!");
         }
 
-        /// <summary>
-        /// Opens the map screen
-        /// </summary>
-        private void mapButton_Click(object sender, EventArgs e)
-        {
-            parent.OpenForm(parent.INCIDENT_MAP);
-        }
-
-        /// <summary>
-        /// Opens the incident page. validates whether there is an admin
-        /// </summary>
-        private void incidentButton_Click(object sender, EventArgs e)
-        {
-            if (parent.IsAdmin)
-                parent.OpenForm(parent.INCIDENT_QUERY);
-            else
-                DisplayLabel(labelError, "Access Denied. Administrators only.");
-        }
-
-        /// <summary>
-        /// Opens the personnel page. validate whether there is an admin
-        /// </summary>
-        private void personnelButton_Click(object sender, EventArgs e)
-        {
-            if (parent.IsAdmin)
-                parent.OpenForm(parent.PERSONNEL_QUERY);
-            else
-                DisplayLabel(labelError, "Access Denied. Administrators only.");
-        }
-
-        /// <summary>
-        /// Opens the reports page. validates whether there is an admin
-        /// </summary>
-        private void reportsButton_Click(object sender, EventArgs e)
-        {
-            if (parent.IsAdmin)
-                parent.OpenForm(parent.REPORTS);
-            else
-                DisplayLabel(labelError, "Access Denied. Administrators only.");
-        }
         #endregion
 
+        #region Form Events 
+
+        /// <summary>
+        /// When form is activated, makes sure to display the correct
+        /// log-in or log-out button. Hides all error labels.
+        /// </summary>
         private void HomeForm_Activated(object sender, EventArgs e) {
             if (parent.IsAdmin) {
                 buttonLogIn.Visible = false;
                 logoutButton.Visible = true;
-            }
-            else {
+            } else {
                 buttonLogIn.Visible = true;
                 logoutButton.Visible = false;
             }
@@ -114,18 +102,27 @@ namespace INB201_QLD_Disaster_Management.Forms
             labelUsername.Text = "User: " + parent.AccountName;
         }
 
+        /// <summary>
+        /// When the timer ticks at a certain amount, update the time
+        /// label with the date and time.
+        /// </summary>
         private void timer1_Tick(object sender, EventArgs e) {
             labelTime.Text = DateTime.Now.ToLongDateString() + "\n" +
-                DateTime.Now.ToShortTimeString();
+                            DateTime.Now.ToShortTimeString();
         }
 
+        #endregion
+
+        #region Helper Methods
+
+        /// <summary>
+        /// Displays the error label in the screen with the corressponding message.
+        /// </summary>
         private void DisplayLabel(Label label, string message) {
             label.Text = message;
             label.Visible = true;
         }
 
-        private void labelError_TextChanged(object sender, EventArgs e) {
-            labelError.Visible = true;
-        }
+        #endregion
     }
 }

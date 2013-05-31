@@ -11,7 +11,7 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
     /// Author: Tristan Le
     /// ID:     N8320055
     /// </summary>
-    public class Validate {
+    public class Valid {
         
         // regex values for string validation
         private const string EMPTY = "";
@@ -37,7 +37,7 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
         public static bool LettersOnly(string text) {
             Regex regex = new Regex(lettersOnly);
 
-            return !regex.IsMatch(text);
+            return regex.IsMatch(text);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
         public static bool NumbersOnly(string text) {
             Regex regex = new Regex(numbersOnly);
 
-            return !regex.IsMatch(text);
+            return regex.IsMatch(text);
         }
 
         /// <summary>
@@ -64,7 +64,21 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
         public static bool Size(int size, string text) {
             int count = text.Count();
 
-            return count > size;
+            return count < size;
+        }
+
+        /// <summary>
+        /// Number validation for number betweens two values
+        /// </summary>
+        /// <param name="number">the number to be tested</param>
+        /// <param name="lowerBound">lower number boundary</param>
+        /// <param name="upperBound">upper number boundary</param>
+        /// <returns>
+        /// true if number is between lowerBound and upperBound,
+        /// Otherwise false
+        /// </returns>
+        public static bool BetweenBoundaries(int number, int lowerBound, int upperBound) {
+            return number >= lowerBound && number <= upperBound;
         }
     }
 }

@@ -7,17 +7,16 @@ using System.Windows.Forms;
 using INB201_QLD_Disaster_Management.Helper_Classes;
 using INB201_QLD_Disaster_Management.Forms;
 
-namespace INB201_QLD_Disaster_Management
-{
+namespace INB201_QLD_Disaster_Management {
     /// <summary>
-    /// This form is the parent form which handles the interaction of
-    /// child forms and displays child forms.
+    /// This is the main form of the program. It acts as the parent form
+    /// with an MDI container and handles the transitions of child forms.
     /// 
     /// Author: Tristan Le
     /// ID:     N8320055
     /// </summary>
-    public partial class Main : Form
-    {
+    public partial class Main : Form {
+
         #region Fields
 
         // list of incident types
@@ -83,11 +82,10 @@ namespace INB201_QLD_Disaster_Management
         // whether a user has login session
         private bool isAdmin = false;
 
-        private const string PUBLIC = "Public";
-
         // used to display account name in home screen
+        private const string PUBLIC = "Public";
         private string accountName = PUBLIC;
-     
+
         #endregion
 
         #region Properties
@@ -95,24 +93,21 @@ namespace INB201_QLD_Disaster_Management
         /// <summary>
         /// accessor for incident edit form, to be able to pass incident id
         /// </summary>
-        public IncidentEditForm IncidentEditForm
-        {
+        public IncidentEditForm IncidentEditForm {
             get { return incidentEditForm; }
         }
 
         /// <summary>
         /// accessor for personnel edit form, to be able to pass personnel id
         /// </summary>
-        public PersonnelEditForm PersonnelEditForm
-        {
+        public PersonnelEditForm PersonnelEditForm {
             get { return personnelEditForm; }
         }
 
         /// <summary>
         /// Get/set accessor for isAdmin
         /// </summary>
-        public bool IsAdmin
-        {
+        public bool IsAdmin {
             get { return isAdmin; }
             set { isAdmin = value; }
         }
@@ -130,50 +125,41 @@ namespace INB201_QLD_Disaster_Management
         #region Initialise
 
         /// <summary>
-        /// Run main program
+        /// Constructs and runs the main program
         /// </summary>
-        public Main()
-        {
+        public Main() {
             InitializeComponent();
             Initialise();
         }
 
         /// <summary>
-        /// Intialises all forms in the program
+        /// Intialises all forms in the program and adds them to the form List. 
+        /// Open the HOME form as the default screen.
         /// </summary>
-        private void Initialise()
-        {
+        private void Initialise() {
             forms = new List<Form>();
 
-            //homeForm
             homeForm = new HomeForm(this);
             forms.Add(homeForm);
 
-            //incident Query form
             incidentQueryForm = new IncidentQueryForm(this);
             forms.Add(incidentQueryForm);
 
-            //incident edit form
             incidentEditForm = new IncidentEditForm(this);
             forms.Add(incidentEditForm);
 
-            // personnel query form
             personnelQueryForm = new PersonnelQueryForm(this);
             forms.Add(personnelQueryForm);
 
-            // personnel edit form
             personnelEditForm = new PersonnelEditForm(this);
             forms.Add(personnelEditForm);
 
-            //incident map form
             incidentMap = new IncidentMap(this);
             forms.Add(incidentMap);
 
-            //reports form
             reportsForm = new ReportsForm(this);
             forms.Add(reportsForm);
 
-            //login form
             logInForm = new LogInForm(this);
             forms.Add(logInForm);
 
@@ -189,50 +175,24 @@ namespace INB201_QLD_Disaster_Management
         #region ToolStrip Methods
 
         /// <summary>
-        /// Opens the home page
+        /// ToolStrip methods opens the form which is assigned to it.
         /// </summary>
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(HOME);
-        }
-
-        /// <summary>
-        /// closes the application
-        /// </summary>
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             this.Close();
         }
-
-        /// <summary>
-        /// Opens the incident query page
-        /// </summary>
-        private void incidentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenForm(HOME);
+        }
+        private void incidentToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenForm(INCIDENT_QUERY);
         }
-
-        /// <summary>
-        /// opens the personnel query form
-        /// </summary>
-        private void personnelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void personnelToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenForm(PERSONNEL_QUERY);
         }
-
-        /// <summary>
-        /// Opens the incident map form
-        /// </summary>
-        private void incidentMapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void incidentMapToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenForm(INCIDENT_MAP);
         }
-
-        /// <summary>
-        /// Opens the report page
-        /// </summary>
-        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenForm(REPORTS);
         }
 
@@ -241,29 +201,29 @@ namespace INB201_QLD_Disaster_Management
         #region Public Methods
 
         /// <summary>
-        /// Open the form based on the index
+        /// Open the form based on the index i.
         /// </summary>
-        public void OpenForm(int i)
-        {
-            forms[i].Show();
-            forms[i].Activate();
+        public void OpenForm(int i) {
+            try {
+                forms[i].Show();
+                forms[i].Activate();
+            } catch (Exception e) {
+                // catch out of range exception
+                MessageBox.Show(e.Message + " Please contact adminstrator."); 
+            }
         }
 
         /// <summary>
-        /// Activates admin functions to 
-        /// personnel, incident and reports pages
+        /// Enables the 'admin' tab of the toolStrip.
         /// </summary>
-        public void EnableAdminFunctions()
-        {
+        public void EnableAdminFunctions() {
             adminToolStripMenuItem.Enabled = true;
         }
 
         /// <summary>
-        /// deactivates admin functions to 
-        /// personnel, incident and reports pages
+        /// Disables the 'admin' tab of the toolStrip.
         /// </summary>
-        public void DisableAdminFunctions()
-        {
+        public void DisableAdminFunctions() {
             adminToolStripMenuItem.Enabled = false;
         }
 

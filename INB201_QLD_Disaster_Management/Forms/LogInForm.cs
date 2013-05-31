@@ -8,15 +8,32 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace INB201_QLD_Disaster_Management.Forms {
+    /// <summary>
+    /// Seperate log-in page for administrators. 
+    /// Handles user log-ins queries.
+    /// 
+    /// Author: Tristan Le
+    /// ID:     N8320055
+    /// </summary>
     public partial class LogInForm : Form {
 
-        private Main parent; 
+        #region Fields
+
+        private Main parent;
+
+        #endregion
+
+        #region Initialise
 
         public LogInForm(Main parent) {
             InitializeComponent();
 
             this.parent = parent;
         }
+
+        #endregion
+
+        #region Button Events
 
         /// <summary>
         /// Allows the user to login to the program
@@ -35,20 +52,24 @@ namespace INB201_QLD_Disaster_Management.Forms {
                 labelError.Visible = false;
                 usernameTextBox.Clear();
                 parent.IsAdmin = true;
-                
+
                 parent.EnableAdminFunctions();
 
                 parent.OpenForm(parent.HOME);
-            }
-            else {
+            } else {
                 labelError.Visible = true;
             }
 
             passwordTextBox.Clear();
         }
 
+        /// <summary>
+        /// Returns back to the home page
+        /// </summary>
         private void buttonBack_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.HOME);
         }
+
+        #endregion
     }
 }

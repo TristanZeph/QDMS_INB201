@@ -7,19 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace INB201_QLD_Disaster_Management.Forms
-{
-    public partial class ReportsForm : Form
-    {
-        private Main parent;
+namespace INB201_QLD_Disaster_Management.Forms {
+    /// <summary>
+    /// This form displays reports of the incidents.
+    /// 
+    /// Author: Tristan Le
+    /// ID:     N8320055
+    /// </summary>
+    public partial class ReportsForm : Form {
 
+        #region Fields
+
+        private Main parent;
         private const string ALL = "All Incidents";
+
+        #endregion
+
+        #region Initialise
 
         /// <summary>
         /// constructor. pass parent for SQL queries
         /// </summary>
-        public ReportsForm(Main parent)
-        {
+        public ReportsForm(Main parent) {
             InitializeComponent();
             Initialize();
 
@@ -29,17 +38,19 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// <summary>
         /// Set up the incident id combobox
         /// </summary>
-        private void Initialize()
-        {
+        private void Initialize() {
             incidentIdCB.Items.Add(ALL);
             incidentIdCB.SelectedItem = ALL;
         }
 
+        #endregion
+
+        #region Helper Methods
+
         /// <summary>
         /// updates the combo box with incident information
         /// </summary>
-        private void UpdateComboBox()
-        {
+        private void UpdateComboBox() {
             string query = "SELECT * FROM incident";
 
             //get query data
@@ -52,8 +63,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             incidentIdCB.SelectedItem = ALL;
 
             //insert incident id into the combo box
-            for (int i = 0; i < data[0].Count(); i++)
-            {
+            for (int i = 0; i < data[0].Count(); i++) {
                 string name = data[0][i] + "; " + data[1][i];
                 incidentIdCB.Items.Add(name);
             }
@@ -62,24 +72,10 @@ namespace INB201_QLD_Disaster_Management.Forms
         }
 
         /// <summary>
-        /// Returns information regarding to the incidents
-        /// </summary>
-        private void getButton_Click(object sender, EventArgs e)
-        {
-            messageTB.Clear();
-
-            if (incidentIdCB.Text == ALL)
-                AllIncidentReport();
-            else
-                IndividualIncidentReport();
-        }
-
-        /// <summary>
         /// gets a report of all incidents occurs in the qld region
         /// </summary>
-        private void AllIncidentReport()
-        {
-            string report = "Report Begin \r\n============\r\n\n" + 
+        private void AllIncidentReport() {
+            string report = "Report Begin \r\n============\r\n\n" +
                             "Report Executed: All Incidents \r\n" +
                             "Time of Report: " + DateTime.Now.ToString();
 
@@ -91,14 +87,13 @@ namespace INB201_QLD_Disaster_Management.Forms
 
             //get status of incidents
             foreach (string status in parent.IncidentStatuses)
-                report += "\r\n" + status + ": " + 
+                report += "\r\n" + status + ": " +
                     parent.SQL.Count("SELECT count(*) FROM incident WHERE status='" + status + "'");
-            
+
             report += "\r\n\r\nTotal types of Incidents \r\n========================";
 
             //get type count of incidents
-            foreach (string type in parent.IncidentTypes)
-            {
+            foreach (string type in parent.IncidentTypes) {
                 int count = parent.SQL.Count("SELECT count(*) FROM incident WHERE type='" + type + "'");
                 if (count > 0)
                     report += "\r\n" + type + ": " + count;
@@ -110,8 +105,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             report += "\r\n\r\nTotal Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel");
             report += "\r\n\r\nTotal Types of Personnel \r\n========================";
 
-            foreach (string type in parent.PersonnelTypes)
-            {
+            foreach (string type in parent.PersonnelTypes) {
                 int count = parent.SQL.Count("SELECT count(*) FROM personnel WHERE type='" + type + "'");
                 if (count > 0)
                     report += "\r\n" + type + ": " + count;
@@ -120,7 +114,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             //report missing or deceased personnel
             report += "\r\n\r\nMissing Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE status='Missing'");
             report += "\r\nDeceased Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE status='Deceased'");
-            
+
             //output the report in the textbox
             messageTB.Text = report;
         }
@@ -128,8 +122,7 @@ namespace INB201_QLD_Disaster_Management.Forms
         /// <summary>
         /// generates an individual incident report
         /// </summary>
-        private void IndividualIncidentReport()
-        {
+        private void IndividualIncidentReport() {
             string id = incidentIdCB.Text.Split(';')[0];
 
             //get incident data
@@ -156,8 +149,7 @@ namespace INB201_QLD_Disaster_Management.Forms
             report += "\r\n\r\nTotal Assigned Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE incident_id=" + id);
             report += "\r\n\r\nTotal Types of Personnel \r\n========================";
 
-            foreach (string type in parent.PersonnelTypes)
-            {
+            foreach (string type in parent.PersonnelTypes) {
                 int count = parent.SQL.Count("SELECT count(*) FROM personnel WHERE type='" + type + "' AND incident_id=" + id);
                 if (count > 0)
                     report += "\r\n" + type + ": " + count;
@@ -166,22 +158,32 @@ namespace INB201_QLD_Disaster_Management.Forms
             //report missing or deceased personnel
             report += "\r\n\r\nMissing Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE status='Missing' AND incident_id=" + id);
             report += "\r\nDeceased Personnel: " + parent.SQL.Count("SELECT count(*) FROM personnel WHERE status='Deceased' AND incident_id=" + id);
-            
+
             messageTB.Text = report;
         }
 
+        #endregion
+
+        #region Button Events
+
         /// <summary>
-        /// when form gets focus, update the combo box
+        /// Returns information regarding to the incidents
         /// </summary>
-        private void ReportsForm_Activated(object sender, EventArgs e)
-        {
-            UpdateComboBox();
+        private void getButton_Click(object sender, EventArgs e) {
+            messageTB.Clear();
+
+            if (incidentIdCB.Text == ALL)
+                AllIncidentReport();
+            else
+                IndividualIncidentReport();
         }
 
+        /// <summary>
+        /// Buttons that transition to a different page.
+        /// </summary>
         private void buttonPersonnel_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.PERSONNEL_QUERY);
         }
-
         private void buttonIncident_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.INCIDENT_QUERY);
         }
@@ -189,5 +191,18 @@ namespace INB201_QLD_Disaster_Management.Forms
         private void buttonMap_Click(object sender, EventArgs e) {
             parent.OpenForm(parent.INCIDENT_MAP);
         }
+
+        #endregion
+
+        #region Form Events
+
+        /// <summary>
+        /// when form gets focus, update the combo box
+        /// </summary>
+        private void ReportsForm_Activated(object sender, EventArgs e) {
+            UpdateComboBox();
+        }
+
+        #endregion
     }
 }

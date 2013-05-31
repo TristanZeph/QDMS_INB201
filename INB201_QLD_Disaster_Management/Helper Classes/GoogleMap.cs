@@ -7,22 +7,20 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 
-namespace INB201_QLD_Disaster_Management.Helper_Classes
-{
+namespace INB201_QLD_Disaster_Management.Helper_Classes {
     /// <summary>
-    /// This class handles the alterations of the Control Map.
+    /// This class handles the controls of the GMap.Net control.
     /// </summary>
-    public class GoogleMap
-    {
+    public class GoogleMap {
         private static string DEFAULT_LOCATION = "Emerald, Queensland";
         private GMapControl gmap;
         private Main parent;                    // for SQL queries
 
         /// <summary>
-        /// Constructor. passes gmap
+        /// Constructors GoogleMap and sets gmap and the parent.
+        /// Initialises the first overlay of the map.
         /// </summary>
-        public GoogleMap(GMapControl gmap, Main parent)
-        {
+        public GoogleMap(GMapControl gmap, Main parent) {
             if (gmap == null) throw new ArgumentNullException();
             if (parent == null) throw new ArgumentNullException();
 
@@ -37,43 +35,34 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes
         /// <summary>
         /// Updates the map markers
         /// </summary>
-        public void UpdateMapMarkers()
-        {
+        public void UpdateMapMarkers() {
             string query = "SELECT * FROM incident";
-
-            //get incident data from DB
             List<string>[] data = parent.SQL.SelectIncident(query);
             if (data == null) return;
 
-            //clear so we dont get dupe markers
+            // clear overlay so we dont get dupe markers
             gmap.Overlays[0].Markers.Clear();
 
-            //create a new marker for each incident
-            for (int i = 0; i < data[0].Count(); i++)
-            {
-                //get lat and lng information
+            // create a new marker for each incident
+            for (int i = 0; i < data[0].Count(); i++) {
                 double lat = Double.Parse(data[4][i]);
                 double lng = Double.Parse(data[5][i]);
+
                 PointLatLng point = new PointLatLng(lat, lng);
 
-                //create a tooltip
+                // create the tooltip
                 string tooltip = data[0][i] + "; " + data[1][i] + "\n" + data[3][i];
-
-                //create the marker on the map
                 CreateMapMarker(point, tooltip);
             }
         }
 
         /// <summary>
-        /// Updates the map markers on the gmap
+        /// Creates the map marker and adds it to the map
         /// </summary>
-        public void CreateMapMarker(PointLatLng point, string tooltip)
-        {
-            //create the marker
+        public void CreateMapMarker(PointLatLng point, string tooltip) {
             GMarkerGoogle marker = new GMarkerGoogle(point, GMarkerGoogleType.red);
             marker.ToolTipText = tooltip;
 
-            //add it to the overlay
             gmap.Overlays[0].Markers.Add(marker);
             gmap.UpdateMarkerLocalPosition(marker);
         }
@@ -81,34 +70,16 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes
         /// <summary>
         /// Sets the map coordinates to center at that specific point.
         /// </summary>
-        public void SetMapCoordinates(PointLatLng point)
-        {
+        public void SetMapCoordinates(PointLatLng point) {
             gmap.Position = point;
         }
 
         /// <summary>
-        /// Go directly to the default location
+        /// Reset the map to the default location
         /// </summary>
-        public void GoToDefaultLocation()
-        {
+        public void GoToDefaultLocation() {
             gmap.SetPositionByKeywords(DEFAULT_LOCATION);
             gmap.Zoom = 5;
-        } 
-
-        /// <summary>
-        /// Increment Zoom property by one
-        /// </summary>
-        public void ZoomIn()
-        {
-            gmap.Zoom += 1;
-        }
-
-        /// <summary>
-        /// Decrement Zoom property by one
-        /// </summary>
-        public void ZoomOut()
-        {
-            gmap.Zoom -= 1;
         }
     }
 }

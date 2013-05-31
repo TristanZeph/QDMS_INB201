@@ -44,8 +44,6 @@
             this.labelErrorLName = new System.Windows.Forms.Label();
             this.labelErrorFName = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.endTimeTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -80,21 +78,23 @@
             this.removeButton.TabIndex = 20;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // statusCB
             // 
             this.statusCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusCB.FormattingEnabled = true;
-            this.statusCB.Location = new System.Drawing.Point(117, 138);
+            this.statusCB.Location = new System.Drawing.Point(117, 160);
             this.statusCB.Name = "statusCB";
             this.statusCB.Size = new System.Drawing.Size(110, 21);
             this.statusCB.TabIndex = 19;
+            this.statusCB.SelectedIndexChanged += new System.EventHandler(this.statusCB_SelectedIndexChanged);
             // 
             // typeCB
             // 
             this.typeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeCB.FormattingEnabled = true;
-            this.typeCB.Location = new System.Drawing.Point(117, 111);
+            this.typeCB.Location = new System.Drawing.Point(117, 123);
             this.typeCB.Name = "typeCB";
             this.typeCB.Size = new System.Drawing.Size(110, 21);
             this.typeCB.TabIndex = 18;
@@ -138,7 +138,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 141);
+            this.label4.Location = new System.Drawing.Point(74, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 4;
@@ -147,7 +147,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 115);
+            this.label3.Location = new System.Drawing.Point(80, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 2;
@@ -164,8 +164,6 @@
             this.groupBox1.Controls.Add(this.labelErrorLName);
             this.groupBox1.Controls.Add(this.labelErrorFName);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.endTimeTextBox);
             this.groupBox1.Controls.Add(this.label7);
@@ -196,7 +194,7 @@
             this.labelConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelConfirm.AutoSize = true;
             this.labelConfirm.ForeColor = System.Drawing.Color.Red;
-            this.labelConfirm.Location = new System.Drawing.Point(55, 326);
+            this.labelConfirm.Location = new System.Drawing.Point(55, 292);
             this.labelConfirm.Name = "labelConfirm";
             this.labelConfirm.Size = new System.Drawing.Size(67, 13);
             this.labelConfirm.TabIndex = 44;
@@ -207,7 +205,7 @@
             // 
             this.comboBoxHours.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHours.FormattingEnabled = true;
-            this.comboBoxHours.Location = new System.Drawing.Point(194, 171);
+            this.comboBoxHours.Location = new System.Drawing.Point(193, 229);
             this.comboBoxHours.Name = "comboBoxHours";
             this.comboBoxHours.Size = new System.Drawing.Size(48, 21);
             this.comboBoxHours.TabIndex = 43;
@@ -216,7 +214,7 @@
             // 
             this.labelErrorEnd.AutoSize = true;
             this.labelErrorEnd.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorEnd.Location = new System.Drawing.Point(443, 141);
+            this.labelErrorEnd.Location = new System.Drawing.Point(428, 163);
             this.labelErrorEnd.Name = "labelErrorEnd";
             this.labelErrorEnd.Size = new System.Drawing.Size(86, 13);
             this.labelErrorEnd.TabIndex = 42;
@@ -227,7 +225,7 @@
             // 
             this.labelErrorStart.AutoSize = true;
             this.labelErrorStart.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorStart.Location = new System.Drawing.Point(443, 114);
+            this.labelErrorStart.Location = new System.Drawing.Point(428, 127);
             this.labelErrorStart.Name = "labelErrorStart";
             this.labelErrorStart.Size = new System.Drawing.Size(89, 13);
             this.labelErrorStart.TabIndex = 41;
@@ -238,7 +236,7 @@
             // 
             this.labelErrorLName.AutoSize = true;
             this.labelErrorLName.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorLName.Location = new System.Drawing.Point(271, 57);
+            this.labelErrorLName.Location = new System.Drawing.Point(271, 61);
             this.labelErrorLName.Name = "labelErrorLName";
             this.labelErrorLName.Size = new System.Drawing.Size(192, 13);
             this.labelErrorLName.TabIndex = 40;
@@ -265,30 +263,10 @@
             this.label11.TabIndex = 38;
             this.label11.Text = "* indicates required fields";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Comments";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(58, 220);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(451, 94);
-            this.textBox1.TabIndex = 36;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 174);
+            this.label10.Location = new System.Drawing.Point(55, 232);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 13);
             this.label10.TabIndex = 34;
@@ -296,7 +274,7 @@
             // 
             // endTimeTextBox
             // 
-            this.endTimeTextBox.Location = new System.Drawing.Point(403, 138);
+            this.endTimeTextBox.Location = new System.Drawing.Point(388, 160);
             this.endTimeTextBox.MaxLength = 4;
             this.endTimeTextBox.Name = "endTimeTextBox";
             this.endTimeTextBox.Size = new System.Drawing.Size(34, 20);
@@ -305,7 +283,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(289, 141);
+            this.label7.Location = new System.Drawing.Point(274, 163);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 13);
             this.label7.TabIndex = 32;
@@ -313,7 +291,7 @@
             // 
             // startTimeTextBox
             // 
-            this.startTimeTextBox.Location = new System.Drawing.Point(403, 111);
+            this.startTimeTextBox.Location = new System.Drawing.Point(388, 124);
             this.startTimeTextBox.MaxLength = 4;
             this.startTimeTextBox.Name = "startTimeTextBox";
             this.startTimeTextBox.Size = new System.Drawing.Size(34, 20);
@@ -322,7 +300,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(286, 114);
+            this.label9.Location = new System.Drawing.Point(271, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 30;
@@ -330,7 +308,7 @@
             // 
             // lNameTextBox
             // 
-            this.lNameTextBox.Location = new System.Drawing.Point(117, 54);
+            this.lNameTextBox.Location = new System.Drawing.Point(117, 58);
             this.lNameTextBox.Name = "lNameTextBox";
             this.lNameTextBox.Size = new System.Drawing.Size(134, 20);
             this.lNameTextBox.TabIndex = 29;
@@ -338,7 +316,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(49, 57);
+            this.label5.Location = new System.Drawing.Point(49, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 28;
@@ -364,15 +342,16 @@
             // 
             this.assignmentCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.assignmentCB.FormattingEnabled = true;
-            this.assignmentCB.Location = new System.Drawing.Point(117, 82);
+            this.assignmentCB.Location = new System.Drawing.Point(116, 89);
             this.assignmentCB.Name = "assignmentCB";
             this.assignmentCB.Size = new System.Drawing.Size(392, 21);
             this.assignmentCB.TabIndex = 25;
+            this.assignmentCB.SelectedIndexChanged += new System.EventHandler(this.assignmentCB_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(52, 85);
+            this.label8.Location = new System.Drawing.Point(51, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 24;
@@ -514,8 +493,6 @@
         private System.Windows.Forms.Button buttonIncident;
         private System.Windows.Forms.Button buttonReports;
         private System.Windows.Forms.Button buttonPersonnel;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelErrorFName;
         private System.Windows.Forms.Label labelErrorLName;

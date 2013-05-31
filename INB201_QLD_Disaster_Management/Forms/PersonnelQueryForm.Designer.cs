@@ -35,9 +35,9 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.PersonnelTypeComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lNameBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.incidentIdCB = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.buttonReports = new System.Windows.Forms.Button();
             this.buttonPersonnel = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,9 +128,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.lNameBox);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.fNameBox);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.incidentIdCB);
             this.groupBox4.Controls.Add(this.statusComboBox);
@@ -145,12 +146,12 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search Options";
             // 
-            // textBox2
+            // lNameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(66, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(131, 20);
-            this.textBox2.TabIndex = 14;
+            this.lNameBox.Location = new System.Drawing.Point(66, 46);
+            this.lNameBox.Name = "lNameBox";
+            this.lNameBox.Size = new System.Drawing.Size(131, 20);
+            this.lNameBox.TabIndex = 14;
             // 
             // label7
             // 
@@ -161,12 +162,12 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Surname";
             // 
-            // textBox1
+            // fNameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(131, 20);
-            this.textBox1.TabIndex = 12;
+            this.fNameBox.Location = new System.Drawing.Point(66, 17);
+            this.fNameBox.Name = "fNameBox";
+            this.fNameBox.Size = new System.Drawing.Size(131, 20);
+            this.fNameBox.TabIndex = 12;
             // 
             // label2
             // 
@@ -197,13 +198,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelError);
             this.groupBox1.Controls.Add(this.createButton);
             this.groupBox1.Controls.Add(this.editButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.personnelIdComboBox);
             this.groupBox1.Location = new System.Drawing.Point(164, 86);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(267, 59);
+            this.groupBox1.Size = new System.Drawing.Size(342, 59);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit/Create New Personnel";
@@ -211,7 +213,7 @@
             // createButton
             // 
             this.createButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createButton.Location = new System.Drawing.Point(186, 32);
+            this.createButton.Location = new System.Drawing.Point(261, 32);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 21);
             this.createButton.TabIndex = 0;
@@ -222,7 +224,7 @@
             // editButton
             // 
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.Location = new System.Drawing.Point(78, 32);
+            this.editButton.Location = new System.Drawing.Point(140, 32);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 21);
             this.editButton.TabIndex = 1;
@@ -235,9 +237,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Select Personnel ID";
+            this.label1.Text = "Select Personnel";
             // 
             // personnelIdComboBox
             // 
@@ -245,7 +247,7 @@
             this.personnelIdComboBox.FormattingEnabled = true;
             this.personnelIdComboBox.Location = new System.Drawing.Point(9, 32);
             this.personnelIdComboBox.Name = "personnelIdComboBox";
-            this.personnelIdComboBox.Size = new System.Drawing.Size(63, 21);
+            this.personnelIdComboBox.Size = new System.Drawing.Size(125, 21);
             this.personnelIdComboBox.TabIndex = 1;
             // 
             // groupBox2
@@ -352,6 +354,17 @@
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(109, 16);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(131, 13);
+            this.labelError.TabIndex = 3;
+            this.labelError.Text = "Please select a personnel.";
+            this.labelError.Visible = false;
+            // 
             // PersonnelQueryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,9 +416,9 @@
         private System.Windows.Forms.ComboBox incidentIdCB;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lNameBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox fNameBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonMap;
@@ -413,5 +426,6 @@
         private System.Windows.Forms.Button buttonReports;
         private System.Windows.Forms.Button buttonPersonnel;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelError;
     }
 }
