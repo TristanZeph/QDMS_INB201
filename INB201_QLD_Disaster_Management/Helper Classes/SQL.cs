@@ -163,21 +163,25 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
 
             //Open connection
             if (this.OpenConnection() == true) {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
+                try {
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
-                while (dataReader.Read()) {
-                    for (int i = 0; i < columnNameIncident.Count(); i++) {
-                        string column = columnNameIncident[i];
-                        list[i].Add(dataReader[column] + "");
+                    //Read the data and store them in the list
+                    while (dataReader.Read()) {
+                        for (int i = 0; i < columnNameIncident.Count(); i++) {
+                            string column = columnNameIncident[i];
+                            list[i].Add(dataReader[column] + "");
+                        }
                     }
+                } catch (Exception e) {
+                    MessageBox.Show(e.Message);
                 }
 
+
                 // clean up
-                dataReader.Close();
                 this.CloseConnection();
 
                 //return list to be displayed
@@ -197,26 +201,25 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
             for (int i = 0; i < list.Count(); i++)
                 list[i] = new List<string>();
 
-            //Open connection
-            if (this.OpenConnection() == true) {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
-                while (dataReader.Read()) {
-                    for (int i = 0; i < columnNamePersonnel.Count(); i++) {
-                        string column = columnNamePersonnel[i];
-                        list[i].Add(dataReader[column] + "");
+            if (this.OpenConnection() == true) {
+                try {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+                    while (dataReader.Read()) {
+                        for (int i = 0; i < columnNamePersonnel.Count(); i++) {
+                            string column = columnNamePersonnel[i];
+                            list[i].Add(dataReader[column] + "");
+                        }
                     }
+                } catch (Exception e) {
+                    MessageBox.Show(e.Message);
                 }
 
-                //clean up
-                dataReader.Close();
                 this.CloseConnection();
 
-                //return list to be displayed
                 return list;
             } else {
                 return list;
@@ -231,11 +234,14 @@ namespace INB201_QLD_Disaster_Management.Helper_Classes {
 
             //Open Connection
             if (this.OpenConnection() == true) {
-                //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                try {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                //ExecuteScalar will return one value
-                Count = int.Parse(cmd.ExecuteScalar() + "");
+                    //ExecuteScalar will return one value
+                    Count = int.Parse(cmd.ExecuteScalar() + "");
+                } catch (Exception e) {
+                    MessageBox.Show(e.Message);
+                }
 
                 //close Connection
                 this.CloseConnection();

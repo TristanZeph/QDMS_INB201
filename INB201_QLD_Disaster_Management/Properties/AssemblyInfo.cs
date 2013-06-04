@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("QDMS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("QUT_INB201_Team4")]
+[assembly: AssemblyCompany("DisasterApp")]
 [assembly: AssemblyProduct("INB201_QLD_Disaster_Management")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]

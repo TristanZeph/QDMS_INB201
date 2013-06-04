@@ -112,7 +112,7 @@ namespace INB201_QLD_Disaster_Management.Forms {
             string type = typeCombox.Text;
             string status = statusCombox.Text;
             string startDate = dateTimePicker.Text;
-            string message = messageTextBox.Text;
+            string message = messageTextBox.Text.Replace("'", "''");
 
             // validate the form before we proceed
             if (ValidateForm()) return;

@@ -199,7 +199,7 @@ namespace INB201_QLD_Disaster_Management.Forms {
                 removeButton.Visible = true;
             } else {
                 Clear();
-                removeButton.Visible = true;
+                removeButton.Visible = false;
             }
         }
 

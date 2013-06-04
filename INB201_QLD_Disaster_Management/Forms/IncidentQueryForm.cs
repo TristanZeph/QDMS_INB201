@@ -82,7 +82,7 @@ namespace INB201_QLD_Disaster_Management.Forms {
                 whereStatements.Add("status='" + statusComboBox.Text + "' ");
             }
             if (locationTextBox.Text != "") {
-                whereStatements.Add("address LIKE '" + locationTextBox.Text + "'");
+                whereStatements.Add("address LIKE '" + locationTextBox.Text.Replace("'", "''") + "'");
             }
 
             // if there are elements in the list, create the WHERE sql statement

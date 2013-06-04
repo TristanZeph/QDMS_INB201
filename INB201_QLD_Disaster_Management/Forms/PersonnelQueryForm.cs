@@ -92,10 +92,10 @@ namespace INB201_QLD_Disaster_Management.Forms {
                 whereStatements.Add("status='" + statusComboBox.Text + "' ");
             }
             if (fNameBox.Text != "") {
-                whereStatements.Add("first_name='" + fNameBox.Text + "' ");
+                whereStatements.Add("first_name='" + fNameBox.Text.Replace("'", "''") + "' ");
             }
             if (lNameBox.Text != "") {
-                whereStatements.Add("last_name='" + lNameBox.Text + "' ");
+                whereStatements.Add("last_name='" + lNameBox.Text.Replace("'", "''") + "' ");
             }
 
             // generate the where statement
